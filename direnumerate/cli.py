@@ -1,6 +1,6 @@
 import argparse
 
-from direnumerate import DirScan, dir_enum
+from direnumerate.__main__ import DirScan
 
 def main():
     parser = argparse.ArgumentParser(description="Direnumerate - Directory Enumeration on Web Servers")
@@ -11,8 +11,8 @@ def main():
     url = args.url
     wordlist_file = args.wordlist
 
-    DirScan(url, wordlist_file)
-    dir_enum()
+    enum = DirScan(url, wordlist_file)
+    enum.dir_enum()
 
 if __name__ == "__main__":
     main()

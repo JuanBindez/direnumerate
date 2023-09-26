@@ -19,11 +19,15 @@ class DirScan():
                     response = requests.get(full_url)
                     
                     if response.status_code == 200:
-                        print(Color.GREEN + f"Found: {Color.RESET + full_url}")
+                        print(Color.GREEN + f"target found: -> {Color.RESET + full_url}")
                     elif response.status_code == 403:
-                        print(Color.RED + f"Access prohibited: {Color.RESET+ full_url}")
+                        print(Color.RED + f"target access prohibited: -> {Color.RESET+ full_url}")
         except FileNotFoundError:
+            if not os.path.isfile(self.wordlist_file):
+                create_wordlist(self.wordlist_file)
             print("Word list file not found.")
+        except TypeError:
+            print(Color.GREEN + "Scan Finished" + Color.RESET)
 
         if not os.path.isfile(self.wordlist_file):
             create_wordlist(self.wordlist_file)
