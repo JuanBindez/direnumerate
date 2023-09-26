@@ -11,7 +11,7 @@ Direnumerate is an open source tool written in Python designed to automate direc
 - Detailed output of findings.
 - Support for multiple URL schemes (http, https, etc.).
 
-### pip:
+## pip:
 
     pip install direnumerate
 
@@ -22,7 +22,7 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
 -----------------
 
-#### usage:
+## usage:
 
 ```python
 
