@@ -1,6 +1,8 @@
 # direnum
 
-Python 3 library for directory enumeration tool in web applications
+### inslall:
+
+    pip install direnum
 
 #### usage:
 
