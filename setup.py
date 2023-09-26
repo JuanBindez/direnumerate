@@ -24,6 +24,9 @@ setup(name = "direnumerate",
       package_data = {"": ["LICENSE"],},
       url = "https://github.com/juanbindez/direnumerate",
       license = "GPLv2 license",
+      entry_points={
+        "console_scripts": [
+            "direnumerate = direnumerate.cli:main"],},
       
       classifiers = [
             "Development Status :: 5 - Production/Stable",
