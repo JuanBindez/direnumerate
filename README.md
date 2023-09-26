@@ -31,3 +31,7 @@ enum.dir_enum()
 ```
 
 ----------
+
+## Command line:
+
+    direnumerate -u http://www.exemple.com -w wordlist.txt
