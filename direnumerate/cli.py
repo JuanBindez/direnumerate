@@ -1,4 +1,6 @@
-from direnumerate import DirScan
+import argparse
+
+from direnumerate import DirScan, dir_enum
 
 def main():
     parser = argparse.ArgumentParser(description="Direnumerate - Directory Enumeration on Web Servers")

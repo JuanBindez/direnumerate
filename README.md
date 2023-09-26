@@ -23,7 +23,7 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
 from direnumerate import DirScan
 
-url = input("url target here >")
+url = "http://www.exemplo.com"
 wordlist = "wordlist.txt"
 
 enum = DirScan(url, wordlist)
