@@ -1,14 +1,14 @@
-# direnum
+# direnumerate
 
-### inslall:
+### install:
 
-    pip install direnum
+    pip install direnumerate
 
 #### usage:
 
 ```python
 
-from direnum import DirScan
+from direnumerate import DirScan
 
 url = input("url target here >")
 wordlist = "wordlist.txt"
