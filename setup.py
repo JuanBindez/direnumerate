@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""This module contains setup instructions for direnum."""
+"""This module contains setup instructions for direnumerate."""
 
 import codecs
 import os
@@ -11,7 +11,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-with open(os.path.join(here, "direnum", "version.py")) as fp:
+with open(os.path.join(here, "direnumerate", "version.py")) as fp:
     exec(fp.read())
 
 
@@ -22,7 +22,7 @@ setup(name = "direnum",
       author_email = "juanbindez780@gmail.com",
       packages = ["direnum"],
       package_data = {"": ["LICENSE"],},
-      url = "https://github.com/juanbindez/direnum",
+      url = "https://github.com/juanbindez/direnumerate",
       license = "GPLv2 license",
       
       classifiers = [
@@ -51,7 +51,7 @@ setup(name = "direnum",
       zip_safe = True,
       python_requires = ">=3.7",
       project_urls = {
-        "Bug Reports": "https://github.com/juanbindez/direnum/issues",
-        "Read the Docs": "https://github.com/JuanBindez/direnum/tree/main/docs/user",
+        "Bug Reports": "https://github.com/juanbindez/direnumerate/issues",
+        "Read the Docs": "https://github.com/JuanBindez/direnumerate/tree/main/docs/user",
       },
-      keywords = ["youtube", "download", "video", "stream",],)
+      keywords = ["web", "enumerate", "directory", "tools",],)

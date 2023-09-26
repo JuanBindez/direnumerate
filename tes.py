@@ -1,4 +1,4 @@
-from direnum import DirScan
+from direnumerate import DirScan
 
 url = input("url target here >")
 wordlist = "wordlist.txt"

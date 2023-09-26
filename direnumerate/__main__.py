@@ -1,8 +1,8 @@
 import requests
 import os
 
-from direnum.createlist import create_wordlist
-from direnum.colors import Color
+from direnumerate.createlist import create_wordlist
+from direnumerate.colors import Color
 
 
 class DirScan():
