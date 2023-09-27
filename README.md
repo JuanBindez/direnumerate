@@ -38,7 +38,7 @@ enum.dir_enum()
 
 ```python
 
-from direnumerate.__main__ import PortScan
+from direnumerate import PortScan
 
 ip = "192.168.0.1"
 start_port = 22
