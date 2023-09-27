@@ -11,7 +11,7 @@ def main():
         parser.add_argument("-u", "--url", required=True, help="Target URL (including scheme, e.g. http://www.example.com)")
         parser.add_argument("-w", "--wordlist", required=True, help="wordlist file")
         parser.add_argument("-V", "--version", required=True, help=__version__)
-        parser.add_argument("-p", "--portscan", required=True, help=__version__)
+        parser.add_argument("-p", "--portscan", required=True, help="port Scan")
         parser.add_argument("-i", "--ip", required=True, help="ipaddress")
         parser.add_argument("-s", "--startport", required=True, help="inicial port")
         parser.add_argument("-e", "--endport", required=True, help="final port")
