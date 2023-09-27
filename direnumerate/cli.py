@@ -16,7 +16,9 @@ def main():
         enum = DirScan(url, wordlist_file)
         enum.dir_enum()
     except TypeError:
-        print(Color.GREEN + "---------- Scan Finished ----------" + Color.RESET)
+        print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
+    except KeyboardInterrupt:
+        print(Color.GREEN + "-------------- attempt interrupted by user ------------" + Color.RESET)
 
 if __name__ == "__main__":
     main()
