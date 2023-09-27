@@ -46,7 +46,7 @@ def main():
     port_parser.add_argument("-e", "--end-port", required=True, type=int, help="End port")
     port_parser.set_defaults(func=port_scan)
 
-    parser.add_argument("-V", "--version", required=True, help=__version__)
+    parser.add_argument("-V", "--version", required=False, help=__version__)
 
     args = parser.parse_args()
     args.func(args)
