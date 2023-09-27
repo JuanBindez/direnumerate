@@ -31,7 +31,7 @@ class DirScan():
             print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
             
         except KeyboardInterrupt:
-        print(Color.GREEN + "-------------- attempt interrupted by user ------------" + Color.RESET)
+            print(Color.GREEN + "-------------- attempt interrupted by user ------------" + Color.RESET)
 
         if not os.path.isfile(self.wordlist_file):
             create_wordlist(self.wordlist_file)
