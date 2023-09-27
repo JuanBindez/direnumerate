@@ -34,11 +34,23 @@ enum.dir_enum()
 
 ----------
 
+## Port Scan:
+
+```python
+
+from direnumerate.__main__ import PortScan
+
+ip = "192.168.0.1"
+start_port = 22
+end_port = 2425
+
+scan = PortScan(ip, start_port, end_port)
+scan.scan_ports()
+```
+----------
+
 ## Command line:
 
     direnumerate -u http://www.exemple.com -w wordlist.txt
 
-## Exemple:
-
-![Captura de tela de 2023-09-26 22-12-27](https://github.com/JuanBindez/direnumerate/assets/79322362/8bf19f41-5225-40cc-a1d8-6dd25a601d4c)
 
