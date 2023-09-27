@@ -51,8 +51,6 @@ scan.scan_ports()
 
 ## Command line:
 
-    direnumerate -u http://www.exemple.com -w wordlist.txt
-
 
 ### Directory Scan:
 
