@@ -6,3 +6,4 @@ __js_url__ = None
 
 from direnumerate.version import __version__
 from direnumerate.__main__ import DirScan
+from direnumerate.__main__ import PortScan

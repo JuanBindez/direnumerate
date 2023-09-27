@@ -1,4 +1,5 @@
 import requests
+import socket
 import os
 
 from direnumerate.createlist import create_wordlist
@@ -45,3 +46,24 @@ class DirScan():
 
         if not os.path.isfile(self.wordlist_file):
             create_wordlist(self.wordlist_file)
+
+
+class PortScan:
+    def __init__(self, host, start_port, end_port):
+        self.host = host
+        self.start_port = start_port
+        self.end_port = end_port
+        self.open_ports = []
+
+    def scan_ports(self):
+        for port in range(self.start_port, self.end_port + 1):
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(1)
+
+            result = sock.connect_ex((self.host, port))
+
+            if result == 0:
+                self.open_ports.append(port)
+                print(Color.GREEN + f"the target -> [{self.host}] port: [{port}] is open" + Color.RESET)
+            else:
+                print(Color.RED + f"the target -> [{self.host}] port: [{port}] is open" + Color.RESET)
