@@ -23,13 +23,15 @@ class DirScan():
                     elif response.status_code == 204:
                         print(Color.RED + f"target access [No Content]: -> {Color.RESET+ full_url}")
                     elif response.status_code == 400:
-                        print(Color.RED + f"target access [Bad Request]: -> {Color.RESET+ full_url}")
+                        print(Color.YELLOW + f"target access [Bad Request]: -> {Color.RESET+ full_url}")
                     elif response.status_code == 401:
                         print(Color.RED + f"target access [Unauthorized]: -> {Color.RESET+ full_url}")
                     elif response.status_code == 403:
                         print(Color.RED + f"target access [Forbidden]: -> {Color.RESET+ full_url}")
                     elif response.status_code == 404:
                         print(Color.RED + f"target access [Not Found]: -> {Color.RESET+ full_url}")
+                    elif response.status_code == 500:
+                        print(Color.BLUE + f"target access [Internal Server Error]: -> {Color.RESET+ full_url}")
         except FileNotFoundError:
             if not os.path.isfile(self.wordlist_file):
                 create_wordlist(self.wordlist_file)
