@@ -47,7 +47,7 @@ enum.dir_enum()
 </head>
 <body>
 
-    <pre><font color="#26A269"><b>juan@juan-MS-7680</b></font>:<font color="#12488B"><b>~</b></font>$ direnumerate -u http://www.exemple.com -w wordlist.txt
+<pre><font color="#26A269"><b>juan@juan-MS-7680</b></font>:<font color="#12488B"><b>~</b></font>$ direnumerate -u http://www.exemple.com -w wordlist.txt
         <font color="#F66151">target access prohibited: -&gt; </font>http://www.exemple.com/admin
         <font color="#F66151">target access prohibited: -&gt; </font>http://www.exemple.com/login
         <font color="#F66151">target access prohibited: -&gt; </font>http://www.exemple.com/images
