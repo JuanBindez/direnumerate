@@ -19,10 +19,10 @@ def main():
 
         args = parser.parse_args()
 
-        if args.portscan:
-            ip = args.portstart
-            start_port = args.startport
-            end_port = args.endport
+        if args.p:
+            ip = args.i
+            start_port = args.s
+            end_port = args.e
 
             scan = PortScan(ip, start_port, end_port)
             scan.open_ports()
