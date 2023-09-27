@@ -54,3 +54,14 @@ scan.scan_ports()
     direnumerate -u http://www.exemple.com -w wordlist.txt
 
 
+### Directory Scan:
+
+    direnumerate dirscan -u "http://www.exemple.com" -w wordlist.txt
+
+### Post Scan:
+
+    direnumerate portscan -t "192.168.1.0" -s 20 -e 80
+
+
+
+
