@@ -1,3 +1,5 @@
+[![PyPI version](https://badge.fury.io/py/direnumerate.svg)](https://badge.fury.io/py/direnumerate)
+
 # Direnumerate
 
 ## Description
