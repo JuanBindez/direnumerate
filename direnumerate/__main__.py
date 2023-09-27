@@ -21,7 +21,7 @@ class DirScan():
                     if response.status_code == 200:
                         print(Color.GREEN + f"target found: -> {Color.RESET + full_url}")
                     elif response.status_code == 403:
-                        print(Color.RED + f"target access prohibited: -> {Color.RESET+ full_url}")
+                        print(Color.RED + f"target access [Forbidden]: -> {Color.RESET+ full_url}")
         except FileNotFoundError:
             if not os.path.isfile(self.wordlist_file):
                 create_wordlist(self.wordlist_file)
