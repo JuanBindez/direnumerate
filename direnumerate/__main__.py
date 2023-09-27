@@ -27,7 +27,7 @@ class DirScan():
                 create_wordlist(self.wordlist_file)
             print("Word list file not found.")
         except TypeError:
-            print(Color.GREEN + "Scan Finished" + Color.RESET)
+            print(Color.GREEN + "---------- Scan Finished ----------" + Color.RESET)
 
         if not os.path.isfile(self.wordlist_file):
             create_wordlist(self.wordlist_file)
