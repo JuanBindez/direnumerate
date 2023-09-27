@@ -12,9 +12,9 @@ def main():
         parser.add_argument("-w", "--wordlist", required=True, help="wordlist file")
         parser.add_argument("-V", "--version", required=True, help=__version__)
         parser.add_argument("-p", "--portscan", required=True, help=__version__)
-        parser.add_argument("-i", "--ip", required=True, help=__version__)
-        parser.add_argument("-s", "--startport", required=True, help=__version__)
-        parser.add_argument("-e", "--endport", required=True, help=__version__)
+        parser.add_argument("-i", "--ip", required=True, help="ipaddress")
+        parser.add_argument("-s", "--startport", required=True, help="inicial port")
+        parser.add_argument("-e", "--endport", required=True, help="final port")
 
 
         args = parser.parse_args()
