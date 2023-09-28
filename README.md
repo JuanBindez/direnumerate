@@ -1,4 +1,4 @@
-<a href="https://badge.fury.io/py/direnumerate"><img src="https://badge.fury.io/py/direnumerate.svg" alt="PyPI version" height="18"></a>
+[![PyPI version](https://badge.fury.io/py/direnumerate.svg)](https://badge.fury.io/py/direnumerate)
 
 # Direnumerate
 
