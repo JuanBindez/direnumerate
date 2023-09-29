@@ -1,6 +1,6 @@
 from direnumerate import DirScan
 
-url = input("url target here >")
+url = "www.exemplo.com"
 wordlist = "wordlist.txt"
 
 enum = DirScan(url, wordlist)
