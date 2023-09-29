@@ -1,7 +1,7 @@
 # Direnumerate
 
 ![PyPI - Version](https://img.shields.io/pypi/v/direnumerate)
-![PyPI - Downloads](https://img.shields.io/pypi/dd/direnumerate)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/direnumerate)
 
 
 ## Description
