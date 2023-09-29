@@ -1,7 +1,7 @@
 import argparse
 from direnumerate.__main__ import *
-from colors import Color
-from version import __version__
+from direnumerate.colors import Color
+from direnumerate.version import __version__
 
 def dir_scan(args):
     try:
