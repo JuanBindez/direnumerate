@@ -64,6 +64,6 @@ class PortScan:
 
             if result == 0:
                 self.open_ports.append(port)
-                print(Color.GREEN + f"the target -> [{self.host}] port: [{port}] is open" + Color.RESET)
+                print(Color.GREEN + f"target -> [{self.host}] port: [{port}] is open" + Color.RESET)
             else:
-                print(Color.RED + f"the target -> [{self.host}] port: [{port}] is closed" + Color.RESET)
+                print(Color.RED + f"target -> [{self.host}] port: [{port}] is closed" + Color.RESET)
