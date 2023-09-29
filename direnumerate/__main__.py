@@ -49,14 +49,13 @@ class DirScan():
 
 
 class PortScan:
-    def __init__(self, host, start_port, end_port):
+    def __init__(self, host, ports):
         self.host = host
-        self.start_port = start_port
-        self.end_port = end_port
+        self.ports = ports
         self.open_ports = []
 
     def scan_ports(self):
-        for port in range(self.start_port, self.end_port + 1):
+        for port in self.ports:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.settimeout(1)
 
@@ -67,3 +66,5 @@ class PortScan:
                 print(Color.GREEN + f"target -> [{self.host}] port: [{port}] is open" + Color.RESET)
             else:
                 print(Color.RED + f"target -> [{self.host}] port: [{port}] is closed" + Color.RESET)
+            sock.close()
+
