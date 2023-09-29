@@ -1,6 +1,8 @@
 # Direnumerate
 
-[![PyPI version](https://badge.fury.io/py/direnumerate.svg)](https://badge.fury.io/py/direnumerate)
+![PyPI - Version](https://img.shields.io/pypi/v/direnumerate)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/direnumerate)
+
 
 ## Description
 
