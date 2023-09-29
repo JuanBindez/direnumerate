@@ -19,7 +19,9 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
 -----------------
 
-## usage:
+## Scripts usage:
+
+### Directory Scan
 
 ```python
 
@@ -34,7 +36,7 @@ enum.dir_enum()
 
 ----------
 
-## Port Scan:
+### Port Scan:
 
 ```python
 
@@ -49,7 +51,7 @@ scan.scan_ports()
 ```
 ----------
 
-## Command line:
+## Command line usage:
 
 
 ### Directory Scan:
