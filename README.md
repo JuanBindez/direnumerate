@@ -54,7 +54,7 @@ scan.scan_ports()
 ```
 ----------
 
-### Sql Inject:
+### Payload:
 
 ```python
 
