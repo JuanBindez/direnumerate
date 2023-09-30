@@ -1,7 +1,7 @@
-from direnumerate import DirScan
+from direnumerate import PayLoad
 
-url = "www.exemplo.com"
-wordlist = "wordlist.txt"
+url = "testphp.vulnweb.com/login.php"
 
-enum = DirScan(url, wordlist)
-enum.dir_enum()
+pl = PayLoad(url)
+pl.start_inject(verbose=True, rocket5=True, term="name")
+
