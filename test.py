@@ -1,7 +1,7 @@
-from direnumerate import PayLoad
+from direnumerate import PortScan
 
-url = "testphp.vulnweb.com/login.php"
+ip = "www.exemple.com"
+list_ports = [22, 80, 443]
 
-pl = PayLoad(url)
-pl.start_inject(verbose=True, rocket5=True, term="name")
-
+scan = PortScan(ip, list_ports)
+scan.scan_ports()
