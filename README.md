@@ -60,11 +60,11 @@ scan.scan_ports()
 
 ### Directory Scan:
 
-    direnumerate -Ds -u "www.exemple.com" -w wordlist.txt
+    direnumerate Ds -u "www.exemple.com" -w wordlist.txt
 
 ### Post Scan:
 
-    direnumerate -Ps -t "192.168.1.0" -p 22 80 443
+    direnumerate Ps -t "192.168.1.0" -p 22 80 443
 
 
 
