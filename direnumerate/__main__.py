@@ -46,6 +46,10 @@ class DirScan():
         except KeyboardInterrupt:
             print(Color.GREEN + "-------------- attempt interrupted by user ------------" + Color.RESET)
 
+        except requests.exceptions.ConnectionError as rec:
+            print(rec)
+            print(Color.RED + "[Error] Don't put http:// in hosts, the software already does that" + Color.RESET)
+
         if not os.path.isfile(self.wordlist_file):
             create_wordlist(self.wordlist_file)
 
@@ -57,15 +61,19 @@ class PortScan:
         self.open_ports = []
 
     def scan_ports(self):
-        for port in self.ports:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(1)
+        try:
+            for port in self.ports:
+                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                sock.settimeout(1)
 
-            result = sock.connect_ex((self.host, port))
+                result = sock.connect_ex((self.host, port))
 
-            if result == 0:
-                self.open_ports.append(port)
-                print(Color.GREEN + f"Target -> [http://{self.host}] port: {port} is open" + Color.RESET)
-            else:
-                print(Color.RED + f"Target -> [http://{self.host}] port: {port} is closed" + Color.RESET)
-            sock.close()
+                if result == 0:
+                    self.open_ports.append(port)
+                    print(Color.GREEN + f"Target -> [http://{self.host}] port: {port} is open" + Color.RESET)
+                else:
+                    print(Color.RED + f"Target -> [http://{self.host}] port: {port} is closed" + Color.RESET)
+                sock.close()
+        except socket.gaierror as sq:
+            print(sq)
+            print(Color.RED + "[Error] Don't put http:// in hosts, the software already does that" + Color.RESET)

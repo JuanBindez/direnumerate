@@ -30,7 +30,7 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
 from direnumerate import DirScan
 
-url = "www.exemplo.com"
+url = "testphp.vulnweb.com"
 wordlist = "wordlist.txt"
 
 enum = DirScan(url, wordlist)
@@ -45,7 +45,7 @@ enum.dir_enum()
 
 from direnumerate import PortScan
 
-ip = "www.exemple.com"
+ip = "44.228.249.3"
 list_ports = [22, 80, 443]
 
 scan = PortScan(ip, list_ports)
@@ -60,11 +60,15 @@ scan.scan_ports()
 
 ### Directory Scan:
 
-    direnumerate Ds -t "www.exemple.com" -w wordlist.txt
+    direnumerate Ds -t "testphp.vulnweb.com" -w wordlist.txt
 
 ### Post Scan:
 
-    direnumerate Ps -t "192.168.1.0" -p 22 80 443
+    direnumerate Ps -t 44.228.249.3 -p 22 80 443
+
+## Note:
+
+#### Don't put http:// in hosts, the software already does that
 
 
 
