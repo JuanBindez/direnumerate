@@ -5,7 +5,7 @@ from direnumerate.version import __version__
 
 def dir_scan(args):
     try:
-        url = args.url
+        url = args.target
         wordlist_file = args.wordlist
 
         enum = DirScan(url, wordlist_file)
