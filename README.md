@@ -60,7 +60,7 @@ scan.scan_ports()
 
 ### Directory Scan:
 
-    direnumerate Ds -u "www.exemple.com" -w wordlist.txt
+    direnumerate Ds -t "www.exemple.com" -w wordlist.txt
 
 ### Post Scan:
 

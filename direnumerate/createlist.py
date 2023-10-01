@@ -81,6 +81,8 @@ def create_wordlist(filename):
         "users.sql",
         "passwords.txt",
         "passwd",
+        "pass",
+        "password.txt"
         "login.txt",
         "credentials",
         "phpmyadmin",
@@ -181,6 +183,11 @@ def create_wordlist(filename):
         "signout.html",
         "signout.aspx",
         "signout.jsp",
+        "clients",
+        "client",
+        "adm",
+        "db.sqlite",
+        "db.sqlite3",
     ]
 
     with open(filename, "w") as wordlist_file:

@@ -30,7 +30,7 @@ def main():
     subparsers = parser.add_subparsers(title="subcommands")
 
     dir_parser = subparsers.add_parser("Ds", help="Perform directory enumeration")
-    dir_parser.add_argument("-u", "--url", required=True, help="Target URL (including scheme, e.g. http://www.example.com)")
+    dir_parser.add_argument("-t", "--target", required=True, help="Target URL (including scheme, e.g. http://www.example.com)")
     dir_parser.add_argument("-w", "--wordlist", required=True, help="Wordlist file")
     dir_parser.set_defaults(func=dir_scan)
 

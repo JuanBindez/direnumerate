@@ -179,3 +179,8 @@ signout
 signout.html
 signout.aspx
 signout.jsp
+clients
+client
+adm
+db.sqlite
+db.sqlite3

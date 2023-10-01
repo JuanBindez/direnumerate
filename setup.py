@@ -60,4 +60,4 @@ setup(name = "direnumerate",
            "Bug Reports": "https://github.com/juanbindez/direnumerate/issues",
            "Read the Docs": "https://github.com/JuanBindez/direnumerate/tree/main/docs/user",
       },
-      keywords = ["web", "enumerate", "directory", "tools", "cli"],)
+      keywords = ["web", "enumerate", "directory", "tools", "cli", "scan",],)
