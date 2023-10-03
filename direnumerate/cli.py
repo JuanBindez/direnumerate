@@ -4,6 +4,12 @@ from direnumerate.colors import Color
 from direnumerate.version import __version__
 
 def dir_scan(args):
+    """
+    Perform directory enumeration based on the provided arguments.
+
+    Args:
+        args (argparse.Namespace): Command-line arguments and options.
+    """
     try:
         url = args.target
         wordlist_file = args.wordlist
@@ -16,6 +22,12 @@ def dir_scan(args):
         print(Color.GREEN + "-------------- Attempt interrupted by user ------------" + Color.RESET)
 
 def port_scan(args):
+    """
+    Perform port scanning based on the provided arguments.
+
+    Args:
+        args (argparse.Namespace): Command-line arguments and options.
+    """
     try:
         host = args.target
         ports = args.ports
@@ -26,6 +38,11 @@ def port_scan(args):
         print(Color.GREEN + "-------------- Port scan interrupted by user ------------" + Color.RESET)
 
 def main():
+    """
+    The main function for the Direnumerate application.
+
+    Parses command-line arguments and options, and executes the appropriate subcommand (dir_scan or port_scan).
+    """
     parser = argparse.ArgumentParser(description="Direnumerate - Directory Enumeration on Web Servers")
     subparsers = parser.add_subparsers(title="subcommands")
 

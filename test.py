@@ -1,7 +1,7 @@
-from direnumerate import PortScan
+from direnumerate import DirScan
 
-ip = "44.228.249.3"
-list_ports = [22, 80, 443]
+url = "testphp.vulnweb.com"
+wordlist = "wordlist.txt"
 
-scan = PortScan(ip, list_ports)
-scan.scan_ports()
+enum = DirScan(url, wordlist)
+enum.dir_enum()

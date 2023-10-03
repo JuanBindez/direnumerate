@@ -1,4 +1,16 @@
 def create_wordlist(filename):
+    """
+    Create a wordlist file with commonly used directory and file names.
+
+    This function generates a wordlist containing common directory and file names used for directory enumeration.
+    The wordlist is written to the specified filename.
+
+    Args:
+        filename (str): The name of the wordlist file to create.
+
+    Example:
+        create_wordlist("wordlist.txt")
+    """
     wordlist = [
         "admin",
         "login",
