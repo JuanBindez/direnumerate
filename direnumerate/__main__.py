@@ -6,7 +6,7 @@ from typing import Optional
 
 from direnumerate.createlist import create_wordlist
 from direnumerate.colors import Color
-from direnumerate.version import __version__
+from direnumerate.banner import banner
 
 
 class DirScan():
@@ -45,9 +45,9 @@ class DirScan():
 
         If the wordlist file is not found, it attempts to create one.
         """
+        banner()
         try:
             with open(self.wordlist_file, "r") as self.wordlist_file:
-                print("direnumerate " + "v" + __version__ + "\n")
                 for line in self.wordlist_file:
                     path = line.strip()
                     full_url = self.url + "/" + path
@@ -68,21 +68,17 @@ class DirScan():
                     elif response.status_code == 500:
                         print(Color.BLUE + f"Target access [Internal Server Error]: -> {Color.RESET+ full_url}")
         except FileNotFoundError:
-            print("direnumerate " + "v" + __version__ + "\n")
             if not os.path.isfile(self.wordlist_file):
                 create_wordlist(self.wordlist_file)
             print("Word list file not found.")
             
         except TypeError:
-            print("direnumerate " + "v" + __version__ + "\n")
             print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
             
         except KeyboardInterrupt:
-            print("direnumerate " + "v" + __version__ + "\n")
             print(Color.GREEN + "-------------- Attempt interrupted by user ------------" + Color.RESET)
 
         except requests.exceptions.ConnectionError as rec:
-            print("direnumerate " + "v" + __version__ + "\n")
             print(rec)
             print(Color.RED + "[Error] Don't put http:// in hosts, the software already does that" + Color.RESET)
 
@@ -132,15 +128,15 @@ class PortScan:
                 result = sock.connect_ex((self.host, port))
 
                 if result == 0:
-                    print("direnumerate " + "v" + __version__ + "\n")
+                    banner()
                     self.open_ports.append(port)
                     print(Color.GREEN + f"Target -> [http://{self.host}] port: {port} is open" + Color.RESET)
                 else:
-                    print("direnumerate " + "v" + __version__ + "\n")
+                    banner()
                     print(Color.RED + f"Target -> [http://{self.host}] port: {port} is closed" + Color.RESET)
                 sock.close()
         except socket.gaierror as sq:
-            print("direnumerate " + "v" + __version__ + "\n")
+            banner()
             print(sq)
             print(Color.RED + "[Error] Don't put http:// in hosts, the software already does that" + Color.RESET)
 
@@ -181,10 +177,10 @@ class FindPattern:
         matching_lines = [line for line in lines if self.keyword in line]
 
         if matching_lines:
-            print("direnumerate " + "v" + __version__ + "\n")
+            banner()
             print(Color.GREEN + f"Lines with the word --> '{self.keyword}':" + Color.RESET)
             for i, line in enumerate(matching_lines, start=1):
                 print(f"Line {i}: {line.strip()}")
         else:
-            print("direnumerate " + "v" + __version__ + "\n")
+            banner()
             print(Color.RED + f"No occurrence of the word --> '{self.keyword}' found." + Color.RESET)

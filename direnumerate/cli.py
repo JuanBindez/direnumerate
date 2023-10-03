@@ -3,6 +3,7 @@ from direnumerate.__main__ import DirScan, PortScan, FindPattern
 from direnumerate.colors import Color
 from direnumerate.version import __version__
 
+
 def dir_scan(args):
     """
     Perform directory enumeration based on the provided arguments.
@@ -20,6 +21,7 @@ def dir_scan(args):
         print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
     except KeyboardInterrupt:
         print(Color.GREEN + "-------------- Attempt interrupted by user ------------" + Color.RESET)
+
 
 def port_scan(args):
     """
@@ -46,7 +48,6 @@ def find_pattern(args):
     fp.find_in_log(keyword=key)
     
     
-
 def main():
     """
     The main function for the Direnumerate application.
@@ -66,10 +67,10 @@ def main():
     port_parser.add_argument("-p", "--ports", nargs='+', type=int, required=True, help="Ports to scan (e.g., 22 80 443)")
     port_parser.set_defaults(func=port_scan)
 
-    port_parser = subparsers.add_parser("Fp", help="Perform port scanning")
-    port_parser.add_argument("-ln", "--logname", required=True, help="Log Name")
-    dir_parser.add_argument("-k", "--keyword", required=True, help="Key Word")
-    port_parser.set_defaults(func=find_pattern)
+    find_pattern_parser = subparsers.add_parser("Fp", help="Perform port scanning")
+    find_pattern_parser.add_argument("-ln", "--logname", required=True, help="Log Name")
+    find_pattern_parser.add_argument("-k", "--keyword", required=True, help="Key Word")
+    find_pattern_parser.set_defaults(func=find_pattern)
 
     args = parser.parse_args()
     args.func(args)
