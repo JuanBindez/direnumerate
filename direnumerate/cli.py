@@ -73,7 +73,7 @@ def main():
     subparsers = parser.add_subparsers(title="subcommands")
 
     dir_parser = subparsers.add_parser("Ds", help="Perform directory enumeration")
-    dir_parser.add_argument("-v", "--verbose", required=False, help="Show infos")
+    dir_parser.add_argument("-v", "--verbose", required=False, help="Verbose output")
     dir_parser.add_argument("-t", "--target", required=True, help="Target URL (including scheme, e.g. http://www.example.com)")
     dir_parser.add_argument("-w", "--wordlist", required=True, help="Wordlist file")
     dir_parser.set_defaults(func=dir_scan)
@@ -84,7 +84,7 @@ def main():
     port_parser.set_defaults(func=port_scan)
 
     find_pattern_parser = subparsers.add_parser("Fp", help="Perform port scanning")
-    find_pattern_parser.add_argument("-ln", "--logname", required=True, help="Log Name")
+    find_pattern_parser.add_argument("-log", "--logname", required=True, help="Log Name")
     find_pattern_parser.add_argument("-k", "--keyword", required=True, help="Key Word")
     find_pattern_parser.set_defaults(func=find_pattern)
 

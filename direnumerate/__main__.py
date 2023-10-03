@@ -9,7 +9,7 @@ from direnumerate.colors import Color
 from direnumerate.banner import banner
 
 
-class DirScan():
+class DirScan:
     """
     A class for directory scanning.
 
@@ -70,7 +70,7 @@ class DirScan():
                         elif response.status_code == 500:
                             print(Color.BLUE + f"Target access [Internal Server Error]: -> {Color.RESET+ full_url}")
             except FileNotFoundError:
-                print("Word list file not found.")
+                print(Color.RED + "Word list file not found." + Color.RESET)
                 
             except TypeError:
                 print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
@@ -94,7 +94,7 @@ class DirScan():
                                 print(Color.GREEN + f"Target access [Found]: -> {Color.RESET + full_url}")
             
             except FileNotFoundError:
-                print("Word list file not found.")
+                print(Color.RED + "Word list file not found." + Color.RESET)
                 
             except TypeError:
                 print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
