@@ -37,6 +37,11 @@ def port_scan(args):
     except KeyboardInterrupt:
         print(Color.GREEN + "-------------- Port scan interrupted by user ------------" + Color.RESET)
 
+def find_pattern(args):
+    pass
+    
+        
+
 def main():
     """
     The main function for the Direnumerate application.
@@ -55,6 +60,11 @@ def main():
     port_parser.add_argument("-t", "--target", required=True, help="Target host")
     port_parser.add_argument("-p", "--ports", nargs='+', type=int, required=True, help="Ports to scan (e.g., 22 80 443)")
     port_parser.set_defaults(func=port_scan)
+
+    port_parser = subparsers.add_parser("Fp", help="Perform port scanning")
+    port_parser.add_argument("-l", "--log", required=True, help="Log Name")
+    dir_parser.add_argument("-k", "--keyword", required=True, help="Wordlist file")
+    port_parser.set_defaults(func=find_pattern)
 
     args = parser.parse_args()
     args.func(args)
