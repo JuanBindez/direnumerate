@@ -66,10 +66,6 @@ scan.scan_ports()
 
     direnumerate Ps -t 44.228.249.3 -p 22 80 443
 
-## Note:
-
-#### Don't put http:// in hosts, the software already does that
-
 
 
 
