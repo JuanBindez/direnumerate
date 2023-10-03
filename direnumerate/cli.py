@@ -1,5 +1,5 @@
 import argparse
-from direnumerate.__main__ import DirScan, PortScan
+from direnumerate.__main__ import DirScan, PortScan, FindPattern
 from direnumerate.colors import Color
 from direnumerate.version import __version__
 
@@ -37,10 +37,15 @@ def port_scan(args):
     except KeyboardInterrupt:
         print(Color.GREEN + "-------------- Port scan interrupted by user ------------" + Color.RESET)
 
+
 def find_pattern(args):
-    pass
+    file_name_log = args.logname
+    key = args.keyword
+
+    fp = FindPattern(file_name_log)
+    fp.find_in_log(keyword=key)
     
-        
+    
 
 def main():
     """
@@ -62,8 +67,8 @@ def main():
     port_parser.set_defaults(func=port_scan)
 
     port_parser = subparsers.add_parser("Fp", help="Perform port scanning")
-    port_parser.add_argument("-l", "--log", required=True, help="Log Name")
-    dir_parser.add_argument("-k", "--keyword", required=True, help="Wordlist file")
+    port_parser.add_argument("-ln", "--logname", required=True, help="Log Name")
+    dir_parser.add_argument("-k", "--keyword", required=True, help="Key Word")
     port_parser.set_defaults(func=find_pattern)
 
     args = parser.parse_args()
