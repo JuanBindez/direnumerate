@@ -11,6 +11,21 @@ def dir_scan(args):
     Args:
         args (argparse.Namespace): Command-line arguments and options.
     """
+
+    if args.verbose:
+            try:
+                url = args.target
+                wordlist_file = args.wordlist
+
+                enum = DirScan(url, wordlist_file)
+                enum.dir_enum(verbose=True)
+            except TypeError:
+                print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
+            except KeyboardInterrupt:
+                print(Color.GREEN + "-------------- Attempt interrupted by user ------------" + Color.RESET)
+    else:
+        pass
+
     try:
         url = args.target
         wordlist_file = args.wordlist
@@ -58,6 +73,7 @@ def main():
     subparsers = parser.add_subparsers(title="subcommands")
 
     dir_parser = subparsers.add_parser("Ds", help="Perform directory enumeration")
+    dir_parser.add_argument("-v", "--verbose", required=False, help="Show infos")
     dir_parser.add_argument("-t", "--target", required=True, help="Target URL (including scheme, e.g. http://www.example.com)")
     dir_parser.add_argument("-w", "--wordlist", required=True, help="Wordlist file")
     dir_parser.set_defaults(func=dir_scan)
