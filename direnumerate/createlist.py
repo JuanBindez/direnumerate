@@ -237,6 +237,9 @@ def create_wordlist(filename):
         "video",
         "hd",
         "HD",
+        "home.php",
+        "wp-content",
+        "img/users/full/",
     ]
 
     with open(filename, "w") as wordlist_file:
