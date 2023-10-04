@@ -233,6 +233,7 @@ def create_wordlist(filename):
         "settings.php",
         "settings.inc",
         "settings.ini",
+        "photo",
     ]
 
     with open(filename, "w") as wordlist_file:
