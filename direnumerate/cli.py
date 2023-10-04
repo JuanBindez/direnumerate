@@ -85,7 +85,7 @@ def main():
 
     find_pattern_parser = subparsers.add_parser("Fp", help="Perform port scanning")
     find_pattern_parser.add_argument("-log", "--logname", required=True, help="Log Name")
-    find_pattern_parser.add_argument("-k", "--keyword", required=True, help="Key Word")
+    find_pattern_parser.add_argument("-key", "--keyword", required=True, help="Key Word")
     find_pattern_parser.set_defaults(func=find_pattern)
 
     args = parser.parse_args()
