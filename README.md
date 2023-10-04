@@ -12,6 +12,7 @@ Direnumerate is an open source tool written in Python designed to automate direc
 ## Key Features
 
 - Enumeration of directories and files on web servers.
+- Creates a wordlist automatically
 - Wordlist customization.
 - Detailed output of findings.
 - Support for multiple URL schemes (http, https, etc.).
