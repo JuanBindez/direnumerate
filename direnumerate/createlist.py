@@ -234,6 +234,9 @@ def create_wordlist(filename):
         "settings.inc",
         "settings.ini",
         "photo",
+        "video",
+        "hd",
+        "HD",
     ]
 
     with open(filename, "w") as wordlist_file:
