@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 align="#">
   <img alt="NextLevelWeek" title="#NextLevelWeek" src="img/logodire.png" width="110px"/>
 </h1>
 
