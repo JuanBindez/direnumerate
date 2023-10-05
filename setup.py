@@ -22,7 +22,7 @@ setup(name = "direnumerate",
       author_email = "juanbindez780@gmail.com",
       packages = ["direnumerate"],
       package_data = {
-          "direnumerate": ["img/logo.png", "LICENSE"],
+          "direnumerate": ["https://github.com/JuanBindez/direnumerate/raw/main/img/logo.png", "LICENSE"],
       },
       url = "https://github.com/juanbindez/direnumerate",
       license = "GPLv2 license",
