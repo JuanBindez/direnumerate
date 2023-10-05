@@ -12,7 +12,7 @@ def is_valid_ip(ip):
         except ValueError:
             return False
 
-# Função para calcular a classe de um endereço IP
+# Funtion to calculate the class of the ipaddress
 def calculate_ip_class(ip):
         first_octet = int(ip.split('.')[0])
         if 1 <= first_octet <= 126:
@@ -28,7 +28,7 @@ def calculate_ip_class(ip):
         else:
             return "Inválido"
 
-# Função para calcular a máscara de sub-rede de um endereço IP
+# Function to calculate the subnet mask of the a ipadress
 def calculate_subnet_mask(ip):
         if not is_valid_ip(ip):
             return "Endereço IP inválido"
