@@ -8,6 +8,7 @@ from direnumerate.createlist import create_wordlist
 from direnumerate.colors import Color
 from direnumerate.banner import banner
 from direnumerate.getinfo import get_info_ip
+from direnumerate.ipcalculator import *
 
 
 class DirScan:
@@ -234,3 +235,17 @@ class InfoIp:
         print(Color.GREEN + "Regional Internet Registry (RIR):" + Color.RESET, informations.get("region"))
         print(Color.GREEN + "IP Block:" + Color.RESET, informations.get("ip_block"))
 
+
+class IpCalc:
+    def __init__(self, ip):
+        self.ip = ip
+
+        # Verificar se o endereço IP é válido
+        if is_valid_ip(self.ip):
+            print("Endereço IP válido.")
+            ip_class = calculate_ip_class(self.ip)
+            print(f"Classe do endereço IP: {ip_class}")
+            subnet_mask = calculate_subnet_mask(self.ip)
+            print(f"Máscara de sub-rede: {subnet_mask}")
+        else:
+            print("Endereço IP inválido. Certifique-se de usar o formato correto.")

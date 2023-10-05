@@ -11,6 +11,7 @@ from direnumerate.__main__ import DirScan
 from direnumerate.__main__ import PortScan
 from direnumerate.__main__ import FindPattern
 from direnumerate.__main__ import InfoIp
+from direnumerate.__main__ import IpCalc
 from direnumerate.createlist import create_wordlist
 
 wordlist_file = "wordlist.txt"
