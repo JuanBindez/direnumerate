@@ -1,5 +1,5 @@
 <h1 align="#">
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="https://github.com/JuanBindez/direnumerate/blob/main/img/logo.png" width="110px"/>
+  <img alt="" title="" src="https://github.com/JuanBindez/direnumerate/blob/main/img/logo.png" width="110px"/>
 </h1>
 
 # Direnumerate
@@ -75,6 +75,19 @@ fp.find_in_log(keyword=key)
 
 ```
 
+### IP Info:
+
+```python
+
+from direnumerate import InfoIp
+
+ip = "8.8.8.8"
+
+ipinfo = InfoIp(ip)
+ipinfo.show_info()
+
+```
+
 
 ----------
 ## Command line usage:
@@ -91,6 +104,10 @@ fp.find_in_log(keyword=key)
 ### Finds patterns in logs:
 
     direnumerate Fp -log test.log -key ERROR
+
+### IP Info:
+
+    direnumerate info -t 8.8.8.8
 
 
 

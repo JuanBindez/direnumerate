@@ -1,7 +1,6 @@
-from direnumerate import FindPatterns
+from direnumerate import InfoIp
 
-log = "test.log"
-key = "ERROR"
+ip = "8.8.8.8"
 
-fp = FindPatterns(log)
-fp.find_in_log(keyword=key)
+ipinfo = InfoIp(ip)
+ipinfo.show_info()

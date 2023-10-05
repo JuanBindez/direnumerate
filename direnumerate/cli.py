@@ -1,5 +1,5 @@
 import argparse
-from direnumerate.__main__ import DirScan, PortScan, FindPattern
+from direnumerate.__main__ import DirScan, PortScan, FindPattern, InfoIp
 from direnumerate.colors import Color
 from direnumerate.version import __version__
 
@@ -61,8 +61,15 @@ def find_pattern(args):
 
     fp = FindPattern(file_name_log)
     fp.find_in_log(keyword=key)
-    
-    
+
+
+def show_info_ip(args):
+    ip_address = args.target
+
+    ipinfo = InfoIp(ip_address)
+    ipinfo.show_info()
+
+
 def main():
     """
     The main function for the Direnumerate application.
@@ -87,6 +94,10 @@ def main():
     find_pattern_parser.add_argument("-log", "--logname", required=True, help="Log Name")
     find_pattern_parser.add_argument("-key", "--keyword", required=True, help="Key Word")
     find_pattern_parser.set_defaults(func=find_pattern)
+
+    info_parser = subparsers.add_parser("info", help="Perform info of ip scanning")
+    info_parser.add_argument("-t", "--target", required=True, help="Target host")
+    info_parser.set_defaults(func=show_info_ip)
 
     args = parser.parse_args()
     args.func(args)

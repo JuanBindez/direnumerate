@@ -7,6 +7,7 @@ from typing import Optional
 from direnumerate.createlist import create_wordlist
 from direnumerate.colors import Color
 from direnumerate.banner import banner
+from direnumerate.getinfo import get_info_ip
 
 
 class DirScan:
@@ -202,3 +203,34 @@ class FindPattern:
         else:
             banner()
             print(Color.RED + f"No occurrence of the word --> '{self.keyword}' found." + Color.RESET)
+
+
+class InfoIp:
+    def __init__(self, ip):
+        self.ip = ip
+    
+    def show_info(self):
+        banner()
+
+        informations = get_info_ip(self.ip)
+        print(Color.GREEN + "Information about the IP address:" + Color.RESET, self.ip)
+        print(Color.GREEN + "IP:" + Color.RESET, informations["ip"])
+        print(Color.GREEN + "Hostname:" + Color.RESET, informations["hostname"])
+        print(Color.GREEN + "Location:" + Color.RESET, informations["loc"])
+        print(Color.GREEN + "City:" + Color.RESET, informations["city"])
+        print(Color.GREEN + "Region:" + Color.RESET, informations["region"])
+        print(Color.GREEN + "Country:" + Color.RESET, informations["country"])
+        print(Color.GREEN + "Internet Service Provider:" + Color.RESET, informations["org"])
+
+        # Additional information (if available)
+        print(Color.GREEN + "Postal Code:" + Color.RESET, informations.get("postal"))
+        print(Color.GREEN + "Time Zone:" + Color.RESET, informations.get("timezone"))
+        print(Color.GREEN + "Coordinates:" + Color.RESET, informations.get("loc"))
+        print(Color.GREEN + "Company Name:" + Color.RESET, informations.get("company"))
+        print(Color.GREEN + "ASN (Autonomous System Number):" + Color.RESET, informations.get("asn"))
+        print(Color.GREEN + "Network Prefix:" + Color.RESET, informations.get("network"))
+        print(Color.GREEN + "Network Prefix CIDR:" + Color.RESET, informations.get("cidr"))
+        print(Color.GREEN + "Connection Type:" + Color.RESET, informations.get("type"))
+        print(Color.GREEN + "Regional Internet Registry (RIR):" + Color.RESET, informations.get("region"))
+        print(Color.GREEN + "IP Block:" + Color.RESET, informations.get("ip_block"))
+
