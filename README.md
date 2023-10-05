@@ -1,5 +1,5 @@
 <h1 align="#">
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="img/logodire.png" width="110px"/>
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="img/logo.png" width="110px"/>
 </h1>
 
 # Direnumerate
