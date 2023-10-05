@@ -20,8 +20,10 @@ setup(name = "direnumerate",
       version = __version__,  # noqa: F821
       author = "Juan Bindez",
       author_email = "juanbindez780@gmail.com",
-      packages = ["direnumerate", "img"],
-      package_data = {"": ["LICENSE"],},
+      packages = ["direnumerate"],
+      package_data = {
+          "direnumerate": ["img/logo.png", "LICENSE"],
+      },
       url = "https://github.com/juanbindez/direnumerate",
       license = "GPLv2 license",
       entry_points={
