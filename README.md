@@ -1,3 +1,7 @@
+<h1 align="center">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="img/logodire.png" width="110px"/>
+</h1>
+
 # Direnumerate
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/direnumerate)
