@@ -17,7 +17,7 @@ class DirScan:
         url (str): The URL to scan.
         wordlist_file (str): The path to the wordlist file.
     """
-    def __init__(self, url, wordlist_file):
+    def __init__(self, url):
         """
         Initializes a DirScan instance.
 
@@ -26,9 +26,8 @@ class DirScan:
             wordlist_file (str): The path to the wordlist file.
         """
         self.url = "http://" + url
-        self.wordlist_file = wordlist_file
 
-    def dir_enum(self, verbose: bool = False):
+    def dir_enum(self, wordlist_file, verbose: bool = False):
         """
         Perform directory enumeration.
 
@@ -45,6 +44,7 @@ class DirScan:
 
         If the wordlist file is not found, it attempts to create one.
         """
+        self.wordlist_file = wordlist_file
         banner()
 
         if verbose:
@@ -115,7 +115,7 @@ class PortScan:
         ports (list): A list of ports to scan.
         open_ports (list): A list to store open ports.
     """
-    def __init__(self, host, ports):
+    def __init__(self, host):
         """
         Initializes a PortScan instance.
 
@@ -124,10 +124,9 @@ class PortScan:
             ports (list): A list of ports to scan.
         """
         self.host = host
-        self.ports = ports
         self.open_ports = []
 
-    def scan_ports(self):
+    def scan_ports(self, ports):
         """
         Scan the specified ports on the target host.
 
@@ -140,6 +139,8 @@ class PortScan:
         Raises:
             socket.gaierror: If an invalid host is provided.
         """
+        self.ports = ports
+        
         try:
             for port in self.ports:
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

@@ -38,8 +38,8 @@ from direnumerate import DirScan
 url = "testphp.vulnweb.com"
 wordlist = "wordlist.txt"
 
-enum = DirScan(url, wordlist)
-enum.dir_enum()
+enum = DirScan(url)
+enum.dir_enum(wordlist)
 ```
 
 ----------
@@ -53,8 +53,25 @@ from direnumerate import PortScan
 ip = "44.228.249.3"
 list_ports = [22, 80, 443]
 
-scan = PortScan(ip, list_ports)
-scan.scan_ports()
+scan = PortScan(ip)
+scan.scan_ports(list_ports)
+
+```
+
+----------
+
+### Finds patterns in logs:
+
+```python
+
+from direnumerate import FindPatterns
+
+log = "test.log"
+key = "ERROR"
+
+fp = FindPatterns(log)
+fp.find_in_log(keyword=key)
+
 
 ```
 
@@ -70,6 +87,10 @@ scan.scan_ports()
 ### Post Scan:
 
     direnumerate Ps -t 44.228.249.3 -p 22 80 443
+
+### Finds patterns in logs:
+
+    direnumerate Fp -log test.log -key ERROR
 
 
 

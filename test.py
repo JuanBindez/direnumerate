@@ -1,7 +1,7 @@
-from direnumerate import DirScan
+from direnumerate import FindPatterns
 
-url = "testphp.vulnweb.com"
-wordlist = "wordlist.txt"
+log = "test.log"
+key = "ERROR"
 
-enum = DirScan(url, wordlist)
-enum.dir_enum()
+fp = FindPatterns(log)
+fp.find_in_log(keyword=key)

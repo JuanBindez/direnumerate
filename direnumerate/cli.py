@@ -17,8 +17,8 @@ def dir_scan(args):
                 url = args.target
                 wordlist_file = args.wordlist
 
-                enum = DirScan(url, wordlist_file)
-                enum.dir_enum(verbose=True)
+                enum = DirScan(url)
+                enum.dir_enum(wordlist_file, verbose=True)
             except TypeError:
                 print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
             except KeyboardInterrupt:
@@ -30,8 +30,8 @@ def dir_scan(args):
         url = args.target
         wordlist_file = args.wordlist
 
-        enum = DirScan(url, wordlist_file)
-        enum.dir_enum()
+        enum = DirScan(url)
+        enum.dir_enum(wordlist_file)
     except TypeError:
         print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
     except KeyboardInterrupt:
@@ -49,8 +49,8 @@ def port_scan(args):
         host = args.target
         ports = args.ports
 
-        scanner = PortScan(host, ports)
-        scanner.scan_ports()
+        scanner = PortScan(host)
+        scanner.scan_ports(ports)
     except KeyboardInterrupt:
         print(Color.GREEN + "-------------- Port scan interrupted by user ------------" + Color.RESET)
 
