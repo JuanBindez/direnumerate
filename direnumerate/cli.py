@@ -83,7 +83,7 @@ def main():
     port_parser.add_argument("-p", "--ports", nargs='+', type=int, required=True, help="Ports to scan (e.g., 22 80 443)")
     port_parser.set_defaults(func=port_scan)
 
-    find_pattern_parser = subparsers.add_parser("Fp", help="Perform port scanning")
+    find_pattern_parser = subparsers.add_parser("Fp", help="Perform log scanning")
     find_pattern_parser.add_argument("-log", "--logname", required=True, help="Log Name")
     find_pattern_parser.add_argument("-key", "--keyword", required=True, help="Key Word")
     find_pattern_parser.set_defaults(func=find_pattern)
