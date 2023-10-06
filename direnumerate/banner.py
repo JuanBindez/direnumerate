@@ -1,4 +1,4 @@
 from direnumerate.version import __version__
 
-def banner():
+def show_banner():
     return print("direnumerate " + "v" + __version__ + "\n")

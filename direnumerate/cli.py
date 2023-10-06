@@ -1,7 +1,7 @@
 import argparse
 from direnumerate.__main__ import DirScan, PortScan, FindPattern, InfoIp, IpCalc
 from direnumerate.colors import Color
-from banner import *
+from direnumerate.banner import *
 from direnumerate.version import __version__
 
 
@@ -12,7 +12,7 @@ def dir_scan(args):
     Args:
         args (argparse.Namespace): Command-line arguments and options.
     """
-    banner()
+    show_banner()
 
     if args.verbose:
             try:
@@ -47,7 +47,7 @@ def port_scan(args):
     Args:
         args (argparse.Namespace): Command-line arguments and options.
     """
-    banner()
+    show_banner()
     try:
         host = args.target
         ports = args.ports
@@ -59,7 +59,7 @@ def port_scan(args):
 
 
 def find_pattern(args):
-    banner()
+    show_banner()
     file_name_log = args.logname
     key = args.keyword
 
@@ -68,14 +68,14 @@ def find_pattern(args):
 
 
 def show_info_ip(args):
-    banner()
+    show_banner()
     ip_address = args.target
 
     ipinfo = InfoIp(ip_address)
     ipinfo.show_info()
 
 def show_calc_ip(args):
-    banner()
+    show_banner()
 
     ip_address = args.target
 

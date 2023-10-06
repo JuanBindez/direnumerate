@@ -6,7 +6,7 @@ from typing import Optional
 
 from direnumerate.createlist import create_wordlist
 from direnumerate.colors import Color
-from direnumerate.banner import banner
+from direnumerate.banner import *
 from direnumerate.getinfo import get_info_ip
 from direnumerate.ipcalculator import *
 
