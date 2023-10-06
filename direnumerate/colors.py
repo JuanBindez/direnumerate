@@ -1,4 +1,4 @@
-class Color():
+class Color:
     GREEN = '\033[92m'
     LIGTH_GREEN = '\033[1;92m'
     RED = '\033[91m'
