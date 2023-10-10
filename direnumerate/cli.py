@@ -1,5 +1,5 @@
 import argparse
-from direnumerate.__main__ import DirScan, PortScan, FindPattern, InfoIp, IpCalc
+from direnumerate.__main__ import DirScan, PortScan, FindPattern, InfoIp
 from direnumerate.colors import Color
 from direnumerate.banner import *
 from direnumerate.version import __version__
@@ -74,14 +74,6 @@ def show_info_ip(args):
     ipinfo = InfoIp(ip_address)
     ipinfo.show_info()
 
-def show_calc_ip(args):
-    show_banner()
-
-    ip_address = args.target
-
-    calc = IpCalc(ip_address)
-    calc.start_calculator(all=True)
-
 
 def main():
     """
@@ -111,10 +103,6 @@ def main():
     info_parser = subparsers.add_parser("info", help="Perform info of ip scanning")
     info_parser.add_argument("-t", "--target", required=True, help="Target host")
     info_parser.set_defaults(func=show_info_ip)
-
-    calc_parser = subparsers.add_parser("calc", help="Perform info of ip scanning")
-    calc_parser.add_argument("-t", "--target", required=True, help="Target host")
-    calc_parser.set_defaults(func=show_calc_ip)
 
     args = parser.parse_args()
     args.func(args)

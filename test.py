@@ -1,6 +1,6 @@
-from direnumerate import IpCalc
+from direnumerate import InfoIp
 
 ip = "8.8.8.8"
 
-calc = IpCalc(ip)
-calc.start_calculator(all=True)
+calc = InfoIp(ip)
+calc.show_info()

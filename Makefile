@@ -33,6 +33,9 @@ upload:
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
 
+git-push:
+	git push -u origin main
+
 help:
 	@echo "clean - remove all build, test, coverage and Python artifacts"
 	@echo "clean-build - remove build artifacts"

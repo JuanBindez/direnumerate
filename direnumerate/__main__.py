@@ -209,7 +209,58 @@ class FindPattern:
 class InfoIp:
     def __init__(self, ip):
         self.ip = ip
+
+
+    def ip_calculator(self,
+                         all: bool = False,
+                         verify_valid_ip: bool = False,
+                         verify_class: bool = False,
+                         calc_subnet_mask: bool = False,
+                         calc_count: bool = False,):
+
+        if all:
+            if is_valid_ip(self.ip):
+                # print(Color.GREEN + "Valid IP address." + Color.RESET)
+                ip_class = calculate_ip_class(self.ip)
+                print(Color.GREEN + "IP address class:" + Color.RESET, f"{ip_class}")
+                subnet_mask = calculate_subnet_mask(self.ip)
+                print(Color.GREEN + "Subnet mask:" + Color.RESET, f"{subnet_mask}")
+                ip_count = calculate_ip_count(self.ip)
+                if ip_count == "Not applicable":
+                    print(Color.RED + "Cannot calculate for this address class." + Color.RESET)
+                else:
+                    print(Color.GREEN + "The number of IP addresses in the block is:" + Color.RESET, f"{ip_count}")
+
+               
+            else:
+                print(Color.RED + "Invalid IP address. Make sure you use the correct format." + Color.RESET)
+
+        elif verify_valid_ip:
+
+            if is_valid_ip(self.ip):
+                print(Color.GREEN + "Valid IP address." + Color.RESET)
+
+        elif verify_class:
+
+            ip_class = calculate_ip_class(self.ip)
+            print(Color.GREEN + f"IP address class: ",  + Color.RESET + {ip_class})
+
+        elif calc_subnet_mask:
+
+            subnet_mask = calculate_subnet_mask(self.ip)
+            print(Color.GREEN + f"Subnet mask:", + Color.RESET + {subnet_mask})
+
+        elif calc_count:
+            if is_valid_ip(self.ip):
+                ip_count = calculate_ip_count(self.ip)
+                if ip_count == "Not applicable":
+                    print(Color.RED + "Cannot calculate for this address class.", + Color.RESET)
+                else:
+                    print(Color.GREEN + f"The number of IP addresses in the block is:"+ Color.RESET, {ip_count})
+            else:
+                print(Color.RED + "Invalid IP address. Make sure to use the correct format.", + Color.RESET)
     
+
     def show_info(self):
         
         informations = get_info_ip(self.ip)
@@ -234,80 +285,5 @@ class InfoIp:
         print(Color.GREEN + "Regional Internet Registry (RIR):" + Color.RESET, informations.get("region"))
         print(Color.GREEN + "IP Block:" + Color.RESET, informations.get("ip_block"))
 
-
-class IpCalc:
-    def __init__(self, ip):
-        self.ip = ip
-
-    def start_calculator(self, 
-                         all: bool = False,
-                         verify_valid_ip: bool = False,
-                         verify_class: bool = False,
-                         calc_subnet_mask: bool = False,
-                         calc_count: bool = False,
-                         subnet_notation: str = None,):
-        
-        self.subnet_notation = subnet_notation
-
-        if all:
-            print(f"Ip Address: {self.ip}")
-            if is_valid_ip(self.ip):
-                # print(Color.GREEN + "Valid IP address." + Color.RESET)
-                ip_class = calculate_ip_class(self.ip)
-                print(f"IP address class: {ip_class}")
-                subnet_mask = calculate_subnet_mask(self.ip)
-                print(f"Subnet mask: {subnet_mask}")
-                ip_count = calculate_ip_count(self.ip)
-                if ip_count == "Not applicable":
-                    print("Cannot calculate for this address class.")
-                else:
-                    print(f"The number of IP addresses in the block is: {ip_count}")
-
-                if subnet_notation:
-                    ip = self.ip + subnet_notation
-
-                    ip_count = calculate_subnet_notation(ip)
-                    if ip_count == "Invalid subnet notation":
-                        print("Invalid subnet notation. Make sure to use the correct format.")
-                    else:
-                        print(f"The number of IP addresses in {subnet_notation} is: {ip_count}")
-
-            else:
-                print(Color.RED + "Invalid IP address. Make sure you use the correct format." + Color.RESET)
-
-        elif verify_valid_ip:
-
-            if is_valid_ip(self.ip):
-                print(Color.GREEN + "Valid IP address." + Color.RESET)
-
-        elif verify_class:
-
-            ip_class = calculate_ip_class(self.ip)
-            print(f"IP address class: {ip_class}")
-
-        elif calc_subnet_mask:
-
-            subnet_mask = calculate_subnet_mask(self.ip)
-            print(f"Subnet mask: {subnet_mask}")
-
-        elif calc_count:
-            if is_valid_ip(self.ip):
-                ip_count = calculate_ip_count(self.ip)
-                if ip_count == "Not applicable":
-                    print("Cannot calculate for this address class.")
-                else:
-                    print(f"The number of IP addresses in the block is: {ip_count}")
-            else:
-                print("Invalid IP address. Make sure to use the correct format.")
-
-        elif subnet_notation:
-
-            ip = self.ip + subnet_notation
-
-            ip_count = calculate_subnet_notation(ip)
-            if ip_count == "Invalid subnet notation":
-                print("Invalid subnet notation. Make sure to use the correct format.")
-            else:
-                print(f"The number of IP addresses in the block is: {ip_count}")
-
-                    
+        ic = InfoIp(self.ip)
+        ic.ip_calculator(all=True)
