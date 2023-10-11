@@ -857,6 +857,7 @@ def create_wordlist(filename):
         "/user/files/docs",
         "/user/files/logs",
         "/img/members/",
+        "img",
         ]
 
     with open(filename, "w") as wordlist_file:
