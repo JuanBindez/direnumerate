@@ -3,10 +3,10 @@
 </h1>
 
 # Direnumerate
-
-![PyPI - Downloads](https://img.shields.io/pypi/dm/direnumerate)
-![PyPI - License](https://img.shields.io/pypi/l/direnumerate)
 ![PyPI - Version](https://img.shields.io/pypi/v/direnumerate)
+![PyPI - License](https://img.shields.io/pypi/l/direnumerate)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/direnumerate)
+
 
 
 ## Description
