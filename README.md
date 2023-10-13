@@ -29,7 +29,7 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
 ## Scripts usage:
 
-### Directory Scan
+### Directory Scan in Websites:
 
 ```python
 
