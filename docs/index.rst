@@ -4,6 +4,17 @@ direnumerate
 ======
 Release v\ |version|. (:ref:`Installation<install>`)
 
+.. image:: https://img.shields.io/pypi/v/direnumerate.svg
+  :alt: Pypi
+  :target: https://pypi.python.org/pypi/direnumerate/
+
+.. image:: https://img.shields.io/pypi/pyversions/direnumerate.svg
+  :alt: Python Versions
+  :target: https://pypi.python.org/pypi/direnumerate/
+
+.. image:: https://readthedocs.org/projects/python-direnumerate/badge/?version=latest&style=flat-square
+  :alt: Readthedocs
+
 **direnumerate** Direnumerate is an open source tool written in Python designed to automate directory and file enumeration on web servers..
 
 -------------------
