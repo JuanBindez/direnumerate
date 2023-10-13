@@ -10,6 +10,12 @@ Directory scan:
 
     $ direnumerate Ds -t "testphp.vulnweb.com" -w wordlist.txt
 
+Directory scan with all outputs verbose, (-v command):
+
+.. code:: bash
+
+    $ direnumerate Ds -v -t "testphp.vulnweb.com" -w wordlist.txt
+
 Port scan:
 
 .. code:: bash
