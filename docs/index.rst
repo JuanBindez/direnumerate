@@ -1,8 +1,8 @@
 .. direnumerate documentation master file,
 
 .. image:: https://github.com/JuanBindez/direnumerate/blob/main/img/logo.png
-  :width: 300px
-  :height: 200px
+  :width: 100px
+  :height: 100px
 
 direnumerate
 ======
