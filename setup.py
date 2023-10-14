@@ -80,6 +80,6 @@ setup(name = "direnumerate",
       python_requires = ">=3.7",
       project_urls = {
            "Bug Reports": "https://github.com/juanbindez/direnumerate/issues",
-           "Read the Docs": "https://github.com/JuanBindez/direnumerate/tree/main/docs/user",
+           "Read the Docs": "https://direnumerate.readthedocs.io/",
       },
       keywords = ["web", "enumerate", "directory", "tools", "cli", "scan",],)
