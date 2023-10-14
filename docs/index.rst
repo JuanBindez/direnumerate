@@ -1,9 +1,5 @@
 .. direnumerate documentation master file,
 
-.. image:: https://github.com/JuanBindez/direnumerate/blob/main/img/logo.png
-  :width: 70px
-  :height: 70px
-
 direnumerate
 ======
 Release v\ |version|. (:ref:`Installation<install>`)
