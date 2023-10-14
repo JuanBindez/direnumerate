@@ -53,4 +53,6 @@ of direnumerate.
    user/install
    user/direnumerate
    user/cli
+   user/portscan
+   user/infoip
 
