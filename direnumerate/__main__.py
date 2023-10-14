@@ -226,6 +226,37 @@ class FindPattern:
 
 
 class InfoIp:
+    """
+    A class for obtaining and analyzing information about an IP address, as well as performing IP-related calculations.
+
+    Args:
+        ip (str): The IP address to be analyzed.
+
+    Methods:
+        ip_calculator(self, all=False, verify_valid_ip=False, verify_class=False, calc_subnet_mask=False, calc_count=False):
+            Perform various IP-related calculations and verifications based on the specified flags.
+
+        show_info(self):
+            Display detailed information about the IP address, including its geographical location, hostname, and more.
+
+    Attributes:
+        ip (str): The IP address to be analyzed.
+
+    The `ip_calculator` method allows you to perform different IP-related tasks based on the specified flags. You can verify if the IP is valid, calculate its class, subnet mask, or the number of IP addresses in its block.
+
+    The `show_info` method retrieves and displays comprehensive information about the IP address, including its geographical details, hostname, and more.
+
+    Example:
+        ip_info = InfoIp("192.168.1.1")
+        ip_info.show_info()
+        ip_info.ip_calculator(verify_valid_ip=True)
+
+    Note:
+        This class relies on external functions (not provided in this code snippet) such as `is_valid_ip`, `calculate_ip_class`,
+        `calculate_subnet_mask`, `calculate_ip_count`, and `get_info_ip` for its functionality.
+
+    For detailed information on the individual methods and their parameters, please refer to the method's documentation.
+    """
     def __init__(self, ip):
         self.ip = ip
 
@@ -236,6 +267,22 @@ class InfoIp:
                          verify_class: bool = False,
                          calc_subnet_mask: bool = False,
                          calc_count: bool = False,):
+        """
+        Perform various IP-related calculations and verifications based on the specified flags.
+
+        Args:
+            all (bool): Calculate all available information if set to True.
+            verify_valid_ip (bool): Verify if the IP address is valid.
+            verify_class (bool): Calculate and display the IP address class.
+            calc_subnet_mask (bool): Calculate and display the subnet mask.
+            calc_count (bool): Calculate and display the number of IP addresses in the block.
+
+        Returns:
+            None
+
+        Note:
+            This method relies on external functions (not provided in this code snippet) for its functionality.
+        """
 
         if all:
             if is_valid_ip(self.ip):
@@ -281,6 +328,18 @@ class InfoIp:
     
 
     def show_info(self):
+        """
+        Display detailed information about the IP address, including its geographical location, hostname, and more.
+
+        Args:
+            None
+
+        Returns:
+            None
+
+        Note:
+            This method relies on external functions (not provided in this code snippet) for its functionality.
+        """
         
         informations = get_info_ip(self.ip)
         print(Color.GREEN + "Information about the IP address:" + Color.RESET, self.ip)
