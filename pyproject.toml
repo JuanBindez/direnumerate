@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=67.4.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "direnumerate"
+version = "2.2.0"
+authors = [
+  { name="Juan Bindez", email="juanbindez780@gmail.com" },
+]
+description = "Python 3 library for directory enumeration tool in web applications."
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "GPLv2 license"}
+keywords = ["web", "enumerate", "directory", "tools", "cli", "scan",]
+classifiers = [
+	"Development Status :: 5 - Production/Stable",
+	"Environment :: Console",
+	"Intended Audience :: Developers",
+	"License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+	"Natural Language :: English",
+	"Operating System :: OS Independent",
+	"Programming Language :: Python :: 3.7",
+	"Programming Language :: Python :: 3.8",
+	"Programming Language :: Python :: 3.9",
+	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python",
+	"Topic :: Internet",
+	"Topic :: Multimedia :: Video",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+	"Topic :: Terminals",
+	"Topic :: Utilities",
+]
+dependencies = ['requests']
+
+[project.urls]
+"Homepage" = "https://github.com/juanbindez/direnumerate"
+"Bug Reports" = "https://github.com/juanbindez/direnumerate/issues"
+"Read the Docs" = "http://direnumerate.readthedocs.io/"
+
+[project.scripts]
+direnumerate = "direnumerate.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["direnumerate*"]
+
+[tool.setuptools]
+license-files = ["LICENSE"]
