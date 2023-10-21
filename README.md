@@ -1,6 +1,3 @@
-<h1 align="#">
-  <img alt="" title="" src="https://github.com/JuanBindez/direnumerate/blob/main/img/logo.png" width="110px"/>
-</h1>
 
 # Direnumerate
 
