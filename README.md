@@ -5,7 +5,6 @@
 ![PyPI - License](https://img.shields.io/pypi/l/direnumerate)
 ![PyPI - Version](https://img.shields.io/pypi/v/direnumerate)
 
-
 ## Description
 
 Direnumerate is an open source tool written in Python designed to automate directory and file enumeration on web servers. It is useful for security professionals and system administrators who want to identify hidden resources and assess the security of web applications.
