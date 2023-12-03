@@ -83,8 +83,6 @@ ipinfo = InfoIp(ip)
 ipinfo.show_info()
 
 ```
-
-
 ----------
 ## Command line usage:
 
