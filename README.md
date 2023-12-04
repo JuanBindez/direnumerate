@@ -67,8 +67,6 @@ key = "ERROR"
 
 fp = FindPatterns(log)
 fp.find_in_log(keyword=key)
-
-
 ```
 
 ### IP Info:
