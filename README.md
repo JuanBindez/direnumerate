@@ -36,7 +36,6 @@ wordlist = "wordlist.txt"
 enum = DirScan(url)
 enum.dir_enum(wordlist)
 ```
-
 ----------
 
 ### Port Scan:
