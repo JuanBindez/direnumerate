@@ -38,6 +38,21 @@ enum.dir_enum(wordlist)
 ```
 ----------
 
+### User Accont Scan:
+
+```python
+
+from direnumerate import UserScan
+
+user = "username"
+
+found = UserScan(user)
+found.found_users()
+
+```
+
+----------
+
 ### Port Scan:
 
 ```python

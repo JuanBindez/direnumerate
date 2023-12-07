@@ -28,6 +28,7 @@ from direnumerate.colors import Color
 from direnumerate.banner import *
 from direnumerate.getinfo import get_info_ip
 from direnumerate.ipcalculator import *
+from direnumerate.list_urls_accounts import *
 
 
 class DirScan:
@@ -365,3 +366,21 @@ class InfoIp:
 
         ic = InfoIp(self.ip)
         ic.ip_calculator(all=True)
+
+
+class UserScan:
+
+    def __init__(self, user_name):
+        self.user_name = user_name
+
+    def found_users(self):
+        for user in list_accounts:
+
+            full_url = user + self.user_name
+            response = requests.get(full_url)
+                        
+            if response.status_code == 200:
+                print(Color.GREEN + f"User Account [Found]: -> {Color.RESET + full_url}")
+            else:
+                print(Color.RED + f"User Account [Not Found]: -> {Color.RESET + full_url}")
+

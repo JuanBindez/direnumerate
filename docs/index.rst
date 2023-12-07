@@ -51,6 +51,7 @@ of direnumerate.
    user/cli
    user/portscan
    user/infoip
+   user/userscan
 
 
 The API Documentation
