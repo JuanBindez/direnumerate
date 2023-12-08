@@ -113,6 +113,3 @@ ipinfo.show_info()
 ### IP Info:
 
     direnumerate info -t 8.8.8.8
-
-
-
