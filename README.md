@@ -50,7 +50,6 @@ found = UserScan(user)
 found.found_users()
 
 ```
-
 ----------
 
 ### Port Scan:
