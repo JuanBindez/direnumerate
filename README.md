@@ -6,7 +6,6 @@
 
 ## Description
 
-
 Direnumerate is an open source tool written in Python designed to automate directory and file enumeration on web servers. It is useful for security professionals and system administrators who want to identify hidden resources and assess the security of web applications.
 
 ## Key Features
