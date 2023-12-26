@@ -65,7 +65,6 @@ scan = PortScan(ip)
 scan.scan_ports(list_ports)
 
 ```
-
 ----------
 
 ### Finds patterns in logs:
