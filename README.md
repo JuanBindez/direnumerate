@@ -95,7 +95,6 @@ ipinfo.show_info()
 ----------
 ## Command line usage:
 
-
 ### Directory Scan:
 
     direnumerate Ds -t "testphp.vulnweb.com" -w wordlist.txt
