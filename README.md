@@ -31,7 +31,7 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
 ### Directory Scan:
 
-    direnumerate Ds -t "testphp.vulnweb.com" -w wordlist.txt
+    direnumerate Ds -t testphp.vulnweb.com -w wordlist.txt
 
 ### Post Scan:
 
