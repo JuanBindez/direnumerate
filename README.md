@@ -27,6 +27,25 @@ Direnumerate is an open source tool written in Python designed to automate direc
     pip install direnumerate --break-system-packages
 ----------
 
+## Command line usage:
+
+### Directory Scan:
+
+    direnumerate Ds -t "testphp.vulnweb.com" -w wordlist.txt
+
+### Post Scan:
+
+    direnumerate Ps -t 44.228.249.3 -p 22 80 443
+
+### Finds patterns in logs:
+
+    direnumerate Fp -log test.log -key ERROR
+
+### IP Info:
+
+    direnumerate info -t 8.8.8.8
+
+
 ## Scripts usage:
 
 ### Directory Scan in Websites:
@@ -98,20 +117,3 @@ ipinfo.show_info()
 
 ```
 ----------
-## Command line usage:
-
-### Directory Scan:
-
-    direnumerate Ds -t "testphp.vulnweb.com" -w wordlist.txt
-
-### Post Scan:
-
-    direnumerate Ps -t 44.228.249.3 -p 22 80 443
-
-### Finds patterns in logs:
-
-    direnumerate Fp -log test.log -key ERROR
-
-### IP Info:
-
-    direnumerate info -t 8.8.8.8
