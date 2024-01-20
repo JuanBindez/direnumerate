@@ -39,6 +39,11 @@ def create_wordlist(filename):
         "superuser",
         "root",
         "test",
+        # PHP apps
+        "config/config.php",
+        "includes/config.inc",
+        
+        # PHP apps
         "guest",
         "demo",
         "webmaster",
