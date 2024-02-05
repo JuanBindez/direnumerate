@@ -3,6 +3,7 @@
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/direnumerate)
 ![PyPI - License](https://img.shields.io/pypi/l/direnumerate)
 [![Documentation Status](https://readthedocs.org/projects/direnumerate/badge/?version=latest)](https://direnumerate.readthedocs.io/en/latest/?badge=latest)
+![GitHub Tag](https://img.shields.io/github/v/tag/JuanBindez/pytubefix?include_prereleases)
 <a href="https://pypi.org/project/direnumerate/"><img src="https://img.shields.io/pypi/v/direnumerate" /></a>
 
 [PDF documentation](https://direnumerate.readthedocs.io/_/downloads/en/latest/pdf/)
