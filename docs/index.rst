@@ -50,6 +50,7 @@ of direnumerate.
    user/cli
    user/portscan
    user/infoip
+   user/findinlog
    user/userscan
 
 
