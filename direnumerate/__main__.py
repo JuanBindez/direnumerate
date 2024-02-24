@@ -1,6 +1,6 @@
 # this is part of the Direnumerate project.
 #
-# Copyright ©  2023  Juan Bindez  <juanbindez780@gmail.com>
+# Copyright ©  2023 - 2024 Juan Bindez  <juanbindez780@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
