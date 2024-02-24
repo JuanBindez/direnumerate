@@ -33,6 +33,9 @@ source_suffix = ".rst"
 # The master toctree document.
 master_doc = "index"
 
+epub_copyright = 'Copyright © 2023 - 2024, Juan Bindez'
+
+
 # General information about the project.
 project = "direnumerate"
 author = "Juan Bindez"
