@@ -1,7 +1,7 @@
 .. _findinlog:
 
 Find Patterns:
-==========
+==============
 
 **If you want to check patterns in logs or other files:**::
 
