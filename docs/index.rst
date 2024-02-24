@@ -1,7 +1,7 @@
 .. direnumerate documentation master file,
 
 direnumerate
-======
+============
 Release v\ |version|. (:ref:`Installation<install>`)
 
 
@@ -15,8 +15,7 @@ Release v\ |version|. (:ref:`Installation<install>`)
 
 
 **direnumerate** Direnumerate is an open source tool written in Python designed to automate directory and file enumeration on web servers..
-
--------------------
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 **Behold, a perfect balance of simplicity versus flexibility**::
 
