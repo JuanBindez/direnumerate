@@ -21,7 +21,7 @@ PortScan Object
    :inherited-members:
 
 FindPattern Object
---------------
+------------------
 
 .. autoclass:: FindPattern
    :members:
@@ -35,7 +35,7 @@ InfoIp Object
    :inherited-members:
 
 UserScan Object
--------------
+---------------
 
 .. autoclass:: UserScan
    :members:
