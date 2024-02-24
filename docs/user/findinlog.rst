@@ -1,7 +1,7 @@
 .. _findinlog:
 
 Port Scan:
-=============================
+==========
 
 **If you want to check patterns in logs or other files:**::
 
