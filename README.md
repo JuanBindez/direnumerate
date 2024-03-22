@@ -121,7 +121,3 @@ ipinfo.show_info()
 
 ```
 ----------
-
-<img>
-    <iframe src="https://github.com/sponsors/JuanBindez/card" title="Sponsor JuanBindez" height="225" width="600" style="border: 0;"></iframe>
-</img>
