@@ -1,5 +1,6 @@
 # Direnumerate
 
+
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/direnumerate)
 ![PyPI - License](https://img.shields.io/pypi/l/direnumerate)
 [![Documentation Status](https://readthedocs.org/projects/direnumerate/badge/?version=latest)](https://direnumerate.readthedocs.io/en/latest/?badge=latest)
@@ -7,6 +8,7 @@
 <a href="https://pypi.org/project/direnumerate/"><img src="https://img.shields.io/pypi/v/direnumerate" /></a>
 
 [PDF documentation](https://direnumerate.readthedocs.io/_/downloads/en/latest/pdf/)
+
 
 ## Description
 
@@ -19,6 +21,7 @@ Direnumerate is an open source tool written in Python designed to automate direc
 - Wordlist customization.
 - Detailed output of findings.
 - Support for multiple URL schemes (http, https, etc.).
+
 
 ## install:
 
