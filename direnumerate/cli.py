@@ -75,46 +75,6 @@ def show_info_ip(args):
     ipinfo.show_info()
 
 
-import argparse
-
-def dir_scan(args):
-    """
-    Function to perform directory enumeration.
-    """
-    # Implement directory scanning functionality here
-    print("Performing directory enumeration...")
-    print("Target URL:", args.target)
-    print("Wordlist file:", args.wordlist)
-    if args.verbose:
-        print("Verbose output enabled")
-
-def port_scan(args):
-    """
-    Function to perform port scanning.
-    """
-    # Implement port scanning functionality here
-    print("Performing port scanning...")
-    print("Target host:", args.target)
-    print("Ports to scan:", args.ports)
-
-def find_pattern(args):
-    """
-    Function to perform log scanning.
-    """
-    # Implement log scanning functionality here
-    print("Performing log scanning...")
-    print("Log Name:", args.logname)
-    print("Key Word:", args.keyword)
-
-def show_info_ip(args):
-    """
-    Function to perform info of IP scanning.
-    """
-    # Implement IP info scanning functionality here
-    print("Performing IP info scanning...")
-    print("Target host:", args.target)
-
-
 def main():
     """
     The main function for the Direnumerate application.
