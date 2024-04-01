@@ -1,4 +1,7 @@
 git add .
-git commit -m 'update >> 3.0-rc3'
+git commit -m 'update'
 git push -u origin main
+git tag v3.0-rc
+git push --tag
+make clean
 make upload
