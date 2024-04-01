@@ -86,7 +86,7 @@ def main():
     # Add arguments for directory enumeration
     parser.add_argument("-v", "--verbose", required=False, action="store_true", help="Verbose output")
     parser.add_argument("-t", "--target", required=True, help="Target URL (including scheme, e.g. http://www.example.com)")
-    parser.add_argument("-w", "--wordlist", required=True, help="Wordlist file")
+    parser.add_argument("-w", "--wordlist", required=False, help="Wordlist file")
     
     # Add arguments for port scanning
     parser.add_argument("-p", "--ports", nargs='+', type=int, help="Ports to scan (e.g., 22 80 443)")
