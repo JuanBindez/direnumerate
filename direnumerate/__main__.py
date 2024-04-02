@@ -363,32 +363,29 @@ class InfoIp:
         
         informations = get_info_ip(self.ip)
 
-        ip_info = {
-                "Information about the IP address": self.ip,
-                "IP": informations["ip:"],
-                "Hostname": informations["hostname"],
-                "Location": informations["loc"],
-                "City": informations["city"],
-                "Region": informations["region"],
-                "Country": informations["country"],
-                "Internet Service Provider": informations["org"],
-                # Additional information (if available)
-                "Postal Code": informations.get("postal"),
-                "Time Zone": informations.get("timezone"),
-                "Coordinates": informations.get("loc"),
-                "Company Name": informations.get("company"),
-                "ASN (Autonomous System Number)": informations.get("asn"),
-                "Network Prefix": informations.get("network"),
-                "Network Prefix CIDR": informations.get("cidr"),
-                "Connection Type": informations.get("type"),
-                "Regional Internet Registry (RIR)": informations.get("region"),
-                "IP Block": informations.get("ip_block")
-        }
+        print(Color.GREEN + "Information about the IP address:" + Color.RESET, self.ip)
+        print(Color.GREEN + "IP:" + Color.RESET, informations["ip"])
+        print(Color.GREEN + "Hostname:" + Color.RESET, informations["hostname"])
+        print(Color.GREEN + "Location:" + Color.RESET, informations["loc"])
+        print(Color.GREEN + "City:" + Color.RESET, informations["city"])
+        print(Color.GREEN + "Region:" + Color.RESET, informations["region"])
+        print(Color.GREEN + "Country:" + Color.RESET, informations["country"])
+        print(Color.GREEN + "Internet Service Provider:" + Color.RESET, informations["org"])
+
+        # Additional information (if available)
+        print(Color.GREEN + "Postal Code:" + Color.RESET, informations.get("postal"))
+        print(Color.GREEN + "Time Zone:" + Color.RESET, informations.get("timezone"))
+        print(Color.GREEN + "Coordinates:" + Color.RESET, informations.get("loc"))
+        print(Color.GREEN + "Company Name:" + Color.RESET, informations.get("company"))
+        print(Color.GREEN + "ASN (Autonomous System Number):" + Color.RESET, informations.get("asn"))
+        print(Color.GREEN + "Network Prefix:" + Color.RESET, informations.get("network"))
+        print(Color.GREEN + "Network Prefix CIDR:" + Color.RESET, informations.get("cidr"))
+        print(Color.GREEN + "Connection Type:" + Color.RESET, informations.get("type"))
+        print(Color.GREEN + "Regional Internet Registry (RIR):" + Color.RESET, informations.get("region"))
+        print(Color.GREEN + "IP Block:" + Color.RESET, informations.get("ip_block"))
         
         ic = InfoIp(self.ip)
         ic.ip_calculator(all=True)
-
-        return ip_info
 
 
 class UserScan:
