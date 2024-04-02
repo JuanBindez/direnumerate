@@ -364,25 +364,25 @@ class InfoIp:
         informations = get_info_ip(self.ip)
 
         ip_info = {
-        "Information about the IP address": self.ip,
-        "IP": informations["ip"],
-        "Hostname": informations["hostname"],
-        "Location": informations["loc"],
-        "City": informations["city"],
-        "Region": informations["region"],
-        "Country": informations["country"],
-        "Internet Service Provider": informations["org"],
-        # Additional information (if available)
-        "Postal Code": informations.get("postal"),
-        "Time Zone": informations.get("timezone"),
-        "Coordinates": informations.get("loc"),
-        "Company Name": informations.get("company"),
-        "ASN (Autonomous System Number)": informations.get("asn"),
-        "Network Prefix": informations.get("network"),
-        "Network Prefix CIDR": informations.get("cidr"),
-        "Connection Type": informations.get("type"),
-        "Regional Internet Registry (RIR)": informations.get("region"),
-        "IP Block": informations.get("ip_block")
+                "Information about the IP address": self.ip,
+                "IP": informations["ip:"],
+                "Hostname": informations["hostname"],
+                "Location": informations["loc"],
+                "City": informations["city"],
+                "Region": informations["region"],
+                "Country": informations["country"],
+                "Internet Service Provider": informations["org"],
+                # Additional information (if available)
+                "Postal Code": informations.get("postal"),
+                "Time Zone": informations.get("timezone"),
+                "Coordinates": informations.get("loc"),
+                "Company Name": informations.get("company"),
+                "ASN (Autonomous System Number)": informations.get("asn"),
+                "Network Prefix": informations.get("network"),
+                "Network Prefix CIDR": informations.get("cidr"),
+                "Connection Type": informations.get("type"),
+                "Regional Internet Registry (RIR)": informations.get("region"),
+                "IP Block": informations.get("ip_block")
         }
         
         ic = InfoIp(self.ip)
