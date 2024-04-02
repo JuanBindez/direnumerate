@@ -85,7 +85,7 @@ def main():
     
     # Add arguments for directory enumeration
     parser.add_argument("-v", "--verbose", required=False, action="store_true", help="Verbose output")
-    parser.add_argument("-t", "--target", required=True, help="Target URL (including scheme, e.g. http://www.example.com)")
+    parser.add_argument("-t", "--target", required=False, help="Target URL (including scheme, e.g. http://www.example.com)")
     parser.add_argument("-w", "--wordlist", required=False, help="Wordlist file")
     parser.add_argument("-i", "--info", required=False, help="Target host for info scanning")
     
