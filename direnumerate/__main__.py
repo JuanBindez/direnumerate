@@ -47,7 +47,7 @@ class DirScan:
             url (str): The URL to scan.
             wordlist_file (str): The path to the wordlist file.
         """
-        self.url = "http://" + url
+        self.url = "http://" + url.replace("https://", "")
 
     def dir_enum(self, wordlist_file, verbose: bool = False):
         """
@@ -79,32 +79,31 @@ class DirScan:
                         
                         if response.status_code == 200:
                             results = f"{Color.GREEN}[Found]:{Color.RESET} {full_url}"
-                            
+                            print(results)
                             
                         elif response.status_code == 204:
                             results = f"{Color.BLUE}[No Content]:{Color.RESET} {full_url}"
-                            
+                            print(results)
                             
                         elif response.status_code == 400:
                             results = f"{Color.YELLOW}[Bad Request]:{Color.RESET} {full_url}"
-                            
+                            print(results)
                             
                         elif response.status_code == 401:
                             results = f"{Color.RED}[Unauthorized]:{Color.RESET} {full_url}"
-                            
+                            print(results)
                             
                         elif response.status_code == 403:
                             results = f"{Color.RED}[Forbidden]:{Color.RESET} {full_url}"
-                            
+                            print(results)
                             
                         elif response.status_code == 404:
                             results =f"{Color.YELLOW}[Not Found]:{Color.RESET} {full_url}"
-                           
+                            print(results)
                             
                         elif response.status_code == 500:
                             results = f"{Color.BLUE}[Internal Server Error]:{Color.RESET} {full_url}"
-                        
-                        return results
+                            print(results)
                             
 
             except FileNotFoundError:
@@ -118,7 +117,7 @@ class DirScan:
 
             except requests.exceptions.ConnectionError as rec:
                 print(rec)
-                print(Color.RED + "[Error] Don't put http:// in hosts, the software already does that" + Color.RESET)
+                print(Color.RED + "[Error] " + Color.RESET)
 
         else:
             try:
@@ -143,7 +142,7 @@ class DirScan:
 
             except requests.exceptions.ConnectionError as rec:
                 print(rec)
-                print(Color.RED + "[Error] Don't put http:// in hosts, the software already does that" + Color.RESET)
+                print(Color.RED + "[Error]" + Color.RESET)
 
 class PortScan:
     """
@@ -162,7 +161,7 @@ class PortScan:
             host (str): The host to scan for open ports.
             ports (list): A list of ports to scan.
         """
-        self.host = host
+        self.host = host.replace("https://", "")
         self.open_ports = []
 
     def scan_ports(self, ports):
@@ -190,16 +189,15 @@ class PortScan:
                 if result == 0:
                     self.open_ports.append(port)
                     results = f"{Color.GREEN} [http://{self.host}] port: {port} is open", {Color.RESET}
-                    
+                    print(results)
                    
                 else:
                     results = f"{Color.RED} [http://{self.host}] port: {port} is closed, {Color.RESET}"
-                
-                return results
+                    print(results)
                 
         except socket.gaierror as sq:
             print(sq)
-            print(Color.RED + "[Error] Don't put http:// in hosts, the software already does that" + Color.RESET)
+            print(Color.RED + "[Error]" + Color.RESET)
         sock.close()
 
 class FindPattern:
