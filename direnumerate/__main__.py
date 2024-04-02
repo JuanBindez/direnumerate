@@ -173,14 +173,18 @@ class PortScan:
 
                 if result == 0:
                     self.open_ports.append(port)
-                    return f"{Color.GREEN} [http://{self.host}] port: {port} is open", {Color.RESET}
+                    results = f"{Color.GREEN} [http://{self.host}] port: {port} is open", {Color.RESET}
+                    
+                    return results
                 else:
-                    print(Color.RED + f"Target -> [http://{self.host}] port: {port} is closed" + Color.RESET)
-                sock.close()
+                    results = f"{Color.RED} [http://{self.host}] port: {port} is closed, {Color.RESET}"
+                    
+                    return results
+                
         except socket.gaierror as sq:
             print(sq)
             print(Color.RED + "[Error] Don't put http:// in hosts, the software already does that" + Color.RESET)
-
+        sock.close()
 
 class FindPattern:
     """
