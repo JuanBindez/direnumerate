@@ -78,19 +78,20 @@ class DirScan:
                         response = requests.get(full_url)
                         
                         if response.status_code == 200:
-                            print(Color.GREEN + f"Target access [Found]: -> {Color.RESET + full_url}")
+                            return f"{Color.GREEN}[Found]:{Color.RESET} {full_url}"
                         elif response.status_code == 204:
-                            print(Color.BLUE + f"Target access [No Content]: -> {Color.RESET+ full_url}")
+                            return f"{Color.BLUE}[No Content]:{Color.RESET} {full_url}"
                         elif response.status_code == 400:
-                            print(Color.YELLOW + f"Target access [Bad Request]: -> {Color.RESET+ full_url}")
+                            return f"{Color.YELLOW}[Bad Request]:{Color.RESET} {full_url}"
                         elif response.status_code == 401:
-                            print(Color.RED + f"Target access [Unauthorized]: -> {Color.RESET+ full_url}")
+                            return f"{Color.RED}[Unauthorized]:{Color.RESET} {full_url}"
                         elif response.status_code == 403:
-                            print(Color.RED + f"Target access [Forbidden]: -> {Color.RESET+ full_url}")
+                            return f"{Color.RED}[Forbidden]:{Color.RESET} {full_url}"
                         elif response.status_code == 404:
-                            print(Color.YELLOW + f"Target access [Not Found]: -> {Color.RESET+ full_url}")
+                            return f"{Color.YELLOW}[Not Found]:{Color.RESET} {full_url}"
                         elif response.status_code == 500:
-                            print(Color.BLUE + f"Target access [Internal Server Error]: -> {Color.RESET+ full_url}")
+                            return f"{Color.BLUE}[Internal Server Error]:{Color.RESET} {full_url}"
+
             except FileNotFoundError:
                 print(Color.RED + "Word list file not found." + Color.RESET)
                 
@@ -113,7 +114,7 @@ class DirScan:
                             response = requests.get(full_url)
                             
                             if response.status_code == 200:
-                                print(Color.GREEN + f"Target access [Found]: -> {Color.RESET + full_url}")
+                                return f"{Color.GREEN}[Found]:{Color.RESET} {full_url}"
             
             except FileNotFoundError:
                 print(Color.RED + "Word list file not found." + Color.RESET)
@@ -172,7 +173,7 @@ class PortScan:
 
                 if result == 0:
                     self.open_ports.append(port)
-                    print(Color.GREEN + f"Target -> [http://{self.host}] port: {port} is open" + Color.RESET)
+                    return f"{Color.GREEN} [http://{self.host}] port: {port} is open", {Color.RESET}
                 else:
                     print(Color.RED + f"Target -> [http://{self.host}] port: {port} is closed" + Color.RESET)
                 sock.close()
@@ -343,29 +344,33 @@ class InfoIp:
         """
         
         informations = get_info_ip(self.ip)
-        print(Color.GREEN + "Information about the IP address:" + Color.RESET, self.ip)
-        print(Color.GREEN + "IP:" + Color.RESET, informations["ip"])
-        print(Color.GREEN + "Hostname:" + Color.RESET, informations["hostname"])
-        print(Color.GREEN + "Location:" + Color.RESET, informations["loc"])
-        print(Color.GREEN + "City:" + Color.RESET, informations["city"])
-        print(Color.GREEN + "Region:" + Color.RESET, informations["region"])
-        print(Color.GREEN + "Country:" + Color.RESET, informations["country"])
-        print(Color.GREEN + "Internet Service Provider:" + Color.RESET, informations["org"])
 
+        ip_info = {
+        "Information about the IP address": self.ip,
+        "IP": informations["ip"],
+        "Hostname": informations["hostname"],
+        "Location": informations["loc"],
+        "City": informations["city"],
+        "Region": informations["region"],
+        "Country": informations["country"],
+        "Internet Service Provider": informations["org"],
         # Additional information (if available)
-        print(Color.GREEN + "Postal Code:" + Color.RESET, informations.get("postal"))
-        print(Color.GREEN + "Time Zone:" + Color.RESET, informations.get("timezone"))
-        print(Color.GREEN + "Coordinates:" + Color.RESET, informations.get("loc"))
-        print(Color.GREEN + "Company Name:" + Color.RESET, informations.get("company"))
-        print(Color.GREEN + "ASN (Autonomous System Number):" + Color.RESET, informations.get("asn"))
-        print(Color.GREEN + "Network Prefix:" + Color.RESET, informations.get("network"))
-        print(Color.GREEN + "Network Prefix CIDR:" + Color.RESET, informations.get("cidr"))
-        print(Color.GREEN + "Connection Type:" + Color.RESET, informations.get("type"))
-        print(Color.GREEN + "Regional Internet Registry (RIR):" + Color.RESET, informations.get("region"))
-        print(Color.GREEN + "IP Block:" + Color.RESET, informations.get("ip_block"))
-
+        "Postal Code": informations.get("postal"),
+        "Time Zone": informations.get("timezone"),
+        "Coordinates": informations.get("loc"),
+        "Company Name": informations.get("company"),
+        "ASN (Autonomous System Number)": informations.get("asn"),
+        "Network Prefix": informations.get("network"),
+        "Network Prefix CIDR": informations.get("cidr"),
+        "Connection Type": informations.get("type"),
+        "Regional Internet Registry (RIR)": informations.get("region"),
+        "IP Block": informations.get("ip_block")
+        }
+        
         ic = InfoIp(self.ip)
         ic.ip_calculator(all=True)
+
+        return ip_info
 
 
 class UserScan:

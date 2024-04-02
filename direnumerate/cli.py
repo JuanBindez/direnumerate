@@ -96,7 +96,7 @@ def main():
     parser.add_argument("-key", "--keyword", help="Key Word")
     
     # Add arguments for IP info scanning
-    parser.add_argument("--info-target", help="Target host for info scanning")
+    parser.add_argument("--info", help="Target host for info scanning")
 
     args = parser.parse_args()
     
@@ -104,7 +104,7 @@ def main():
         find_pattern(args)
     elif args.ports:
         port_scan(args)
-    elif args.info_target:
+    elif args.info:
         show_info_ip(args)
     else:
         dir_scan(args)
