@@ -79,32 +79,33 @@ class DirScan:
                         
                         if response.status_code == 200:
                             results = f"{Color.GREEN}[Found]:{Color.RESET} {full_url}"
-                            print(results)
-                            return results
+                            
+                            
                         elif response.status_code == 204:
                             results = f"{Color.BLUE}[No Content]:{Color.RESET} {full_url}"
-                            print(results)
-                            return results
+                            
+                            
                         elif response.status_code == 400:
                             results = f"{Color.YELLOW}[Bad Request]:{Color.RESET} {full_url}"
-                            print(results)
-                            return results
+                            
+                            
                         elif response.status_code == 401:
                             results = f"{Color.RED}[Unauthorized]:{Color.RESET} {full_url}"
-                            print(results)
-                            return results
+                            
+                            
                         elif response.status_code == 403:
                             results = f"{Color.RED}[Forbidden]:{Color.RESET} {full_url}"
-                            print(results)
-                            return results
+                            
+                            
                         elif response.status_code == 404:
                             results =f"{Color.YELLOW}[Not Found]:{Color.RESET} {full_url}"
-                            print(results)
-                            return results
+                           
+                            
                         elif response.status_code == 500:
                             results = f"{Color.BLUE}[Internal Server Error]:{Color.RESET} {full_url}"
-                            print(results)
-                            return results
+                        
+                        return results
+                            
 
             except FileNotFoundError:
                 print(Color.RED + "Word list file not found." + Color.RESET)
@@ -128,7 +129,8 @@ class DirScan:
                             response = requests.get(full_url)
                             
                             if response.status_code == 200:
-                                return f"{Color.GREEN}[Found]:{Color.RESET} {full_url}"
+                                results = f"{Color.GREEN}[Found]:{Color.RESET} {full_url}"
+                                print(results)
             
             except FileNotFoundError:
                 print(Color.RED + "Word list file not found." + Color.RESET)
@@ -188,14 +190,12 @@ class PortScan:
                 if result == 0:
                     self.open_ports.append(port)
                     results = f"{Color.GREEN} [http://{self.host}] port: {port} is open", {Color.RESET}
-                    print(results)
                     
-                    return results
+                   
                 else:
                     results = f"{Color.RED} [http://{self.host}] port: {port} is closed, {Color.RESET}"
-                    print(results)
-
-                    return results
+                
+                return results
                 
         except socket.gaierror as sq:
             print(sq)
