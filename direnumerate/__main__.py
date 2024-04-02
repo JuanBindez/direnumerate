@@ -188,7 +188,7 @@ class PortScan:
 
                 if result == 0:
                     self.open_ports.append(port)
-                    results = f"{Color.GREEN} [http://{self.host}] port: {port} is open", {Color.RESET}
+                    results = f"{Color.GREEN} [http://{self.host}] port: {port} is open, {Color.RESET}"
                     print(results)
                    
                 else:
