@@ -87,6 +87,7 @@ def main():
     parser.add_argument("-v", "--verbose", required=False, action="store_true", help="Verbose output")
     parser.add_argument("-t", "--target", required=True, help="Target URL (including scheme, e.g. http://www.example.com)")
     parser.add_argument("-w", "--wordlist", required=False, help="Wordlist file")
+    parser.add_argument("-i", "--info", required=False, help="Target host for info scanning")
     
     # Add arguments for port scanning
     parser.add_argument("-p", "--ports", nargs='+', type=int, help="Ports to scan (e.g., 22 80 443)")
@@ -95,8 +96,6 @@ def main():
     parser.add_argument("-log", "--logname", help="Log Name")
     parser.add_argument("-key", "--keyword", help="Key Word")
     
-    # Add arguments for IP info scanning
-    parser.add_argument("--info", help="Target host for info scanning")
 
     args = parser.parse_args()
     
