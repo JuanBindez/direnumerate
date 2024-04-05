@@ -47,7 +47,16 @@ class DirScan:
             url (str): The URL to scan.
             wordlist_file (str): The path to the wordlist file.
         """
-        self.url = "http://" + url.replace("https://", "")
+
+        url_verify = url[4]
+
+        if url_verify == ":":
+            url = url.replace("http://", "https://")
+            self.url = url
+
+        elif url_verify == "s":
+            self.url = url
+
 
     def dir_enum(self, wordlist_file, verbose: bool = False):
         """
