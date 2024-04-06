@@ -57,6 +57,8 @@ class DirScan:
         elif url_verify == "s":
             self.url = url
 
+        else:
+            self.url = "https://" + url
 
     def dir_enum(self, wordlist_file, verbose: bool = False):
         """
