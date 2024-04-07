@@ -29,6 +29,7 @@ from direnumerate.banner import *
 from direnumerate.getinfo import get_info_ip
 from direnumerate.ipcalculator import *
 from direnumerate.list_urls_accounts import *
+from direnumerate.help import help_direnumerate
 
 
 class DirScan:
@@ -47,8 +48,10 @@ class DirScan:
             url (str): The URL to scan.
             wordlist_file (str): The path to the wordlist file.
         """
-
-        url_verify = url[4]
+        try:
+            url_verify = url[4]
+        except IndexError:
+            help_direnumerate()
 
         if url_verify == ":":
             url = url.replace("http://", "https://")
