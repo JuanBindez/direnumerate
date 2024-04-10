@@ -29,6 +29,8 @@ from direnumerate.banner import *
 from direnumerate.getinfo import get_info_ip
 from direnumerate.ipcalculator import *
 from direnumerate.list_urls_accounts import *
+from direnumerate.help import help_direnumerate
+import direnumerate.exceptions as exception
 
 
 class DirScan:
@@ -48,17 +50,23 @@ class DirScan:
             wordlist_file (str): The path to the wordlist file.
         """
 
-        url_verify = url[4]
+        self.url = url
 
-        if url_verify == ":":
-            url = url.replace("http://", "https://")
-            self.url = url
+        try:
+            url_verify = url[4]
+        
+            if url_verify == ":":
+                url = url.replace("http://", "https://")
+                self.url = url
 
-        elif url_verify == "s":
-            self.url = url
+            elif url_verify == "s":
+                self.url = url
 
-        else:
-            self.url = "https://" + url
+            else:
+                self.url = "https://" + url
+                
+        except IndexError:
+            raise exception.DirenumerateError("[error] expected an argument")
 
     def dir_enum(self, wordlist_file, verbose: bool = False):
         """
