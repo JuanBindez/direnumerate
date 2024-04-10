@@ -1,7 +1,7 @@
 git add .
-git commit -m 'v3.2.2-rc2'
-git push -u origin release_candidate_bugfix
-git tag v3.2.2-rc2
+git commit -m 'v3.2.2'
+git push -u origin main
+git tag v3.2.2
 git push --tag
 make clean
 make upload
