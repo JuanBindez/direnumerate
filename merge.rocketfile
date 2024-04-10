@@ -1,16 +1,6 @@
 git add .
 git commit -m "merge.rocketfile"
 git checkout main
-<<<<<<< HEAD
-git merge rc
-git add .
-git commit -m 'update v3.2.1'
-git push -u origin main
-git tag v3.2.1
-git push --tag
-make clean
-make upload
-=======
 git merge release_candidate_bugfix
 git add .
 git commit -m 'release tag v3.2.2'
@@ -19,4 +9,3 @@ git tag v3.2.2
 git push --tag
 make clean
 make upload
->>>>>>> release_candidate_bugfix
