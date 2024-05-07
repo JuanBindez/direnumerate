@@ -27,11 +27,6 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
 -----------------
 
-## install in ubuntu:
-
-    pip install direnumerate --break-system-packages
-----------
-
 ## Command line usage:
 
 ### Directory Scan:
