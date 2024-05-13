@@ -9,6 +9,9 @@
 <a href="https://pypi.org/project/direnumerate/"><img src="https://img.shields.io/pypi/v/direnumerate" /></a>
 
 
+#### Use in Colab
+
+https://colab.research.google.com/github/JuanBindez/direnumerate-colab/blob/main/direnumerate.ipynb?authuser=1#scrollTo=p85-ili-IB6R
 
 ## Description
 
