@@ -45,7 +45,7 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
 ### IP Info:
 
-    direnumerate -t 8.8.8.8 -i
+    direnumerate -i 8.8.8.8
 
 
 ## Scripts usage:
