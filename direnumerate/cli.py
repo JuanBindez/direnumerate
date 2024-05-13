@@ -69,7 +69,7 @@ def find_pattern(args):
 
 def show_info_ip(args):
     show_banner()
-    ip_address = args.target
+    ip_address = args.info
 
     ipinfo = InfoIp(ip_address)
     ipinfo.show_info()

@@ -31,6 +31,7 @@ from direnumerate.ipcalculator import *
 from direnumerate.list_urls_accounts import *
 from direnumerate.help import help_direnumerate
 import direnumerate.exceptions as exception
+from direnumerate.warning import deprecated
 
 
 class DirScan:
@@ -407,10 +408,12 @@ class InfoIp:
         ic.ip_calculator(all=True)
 
 
+@deprecated
 class UserScan:
     def __init__(self, user_name):
         self.user_name = user_name
-
+        
+    @deprecated
     def found_users(self):
         for user in list_accounts:
 
