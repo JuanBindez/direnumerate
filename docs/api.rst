@@ -34,9 +34,3 @@ InfoIp Object
    :members:
    :inherited-members:
 
-UserScan Object
----------------
-
-.. autoclass:: UserScan
-   :members:
-   :inherited-members:
