@@ -59,10 +59,8 @@ class DirScan:
             if url_verify == ":":
                 url = url.replace("http://", "https://")
                 self.url = url
-
             elif url_verify == "s":
                 self.url = url
-
             else:
                 self.url = "https://" + url
                 
@@ -99,42 +97,32 @@ class DirScan:
                         
                         if response.status_code == 200:
                             results = f"{Color.GREEN}[Found]:{Color.RESET} {full_url}"
-                            print(results)
-                            
+                            print(results) 
                         elif response.status_code == 204:
                             results = f"{Color.BLUE}[No Content]:{Color.RESET} {full_url}"
                             print(results)
-                            
                         elif response.status_code == 400:
                             results = f"{Color.YELLOW}[Bad Request]:{Color.RESET} {full_url}"
                             print(results)
-                            
                         elif response.status_code == 401:
                             results = f"{Color.RED}[Unauthorized]:{Color.RESET} {full_url}"
                             print(results)
-                            
                         elif response.status_code == 403:
                             results = f"{Color.RED}[Forbidden]:{Color.RESET} {full_url}"
                             print(results)
-                            
                         elif response.status_code == 404:
                             results =f"{Color.YELLOW}[Not Found]:{Color.RESET} {full_url}"
                             print(results)
-                            
                         elif response.status_code == 500:
                             results = f"{Color.BLUE}[Internal Server Error]:{Color.RESET} {full_url}"
                             print(results)
-                            
 
             except FileNotFoundError:
                 print(Color.RED + "Word list file not found." + Color.RESET)
-                
             except TypeError:
                 print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
-                
             except KeyboardInterrupt:
                 print(Color.GREEN + "-------------- Attempt interrupted by user ------------" + Color.RESET)
-
             except requests.exceptions.ConnectionError as rec:
                 print(rec)
                 print(Color.RED + "[Error] " + Color.RESET)
@@ -153,13 +141,10 @@ class DirScan:
             
             except FileNotFoundError:
                 print(Color.RED + "Word list file not found." + Color.RESET)
-                
             except TypeError:
                 print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
-                
             except KeyboardInterrupt:
                 print(Color.GREEN + "-------------- Attempt interrupted by user ------------" + Color.RESET)
-
             except requests.exceptions.ConnectionError as rec:
                 print(rec)
                 print(Color.RED + "[Error]" + Color.RESET)
@@ -210,7 +195,6 @@ class PortScan:
                     self.open_ports.append(port)
                     results = f"{Color.GREEN} [http://{self.host}] port: {port} is open, {Color.RESET}"
                     print(results)
-                   
                 else:
                     results = f"{Color.RED} [http://{self.host}] port: {port} is closed, {Color.RESET}"
                     print(results)
@@ -256,12 +240,10 @@ class FindPattern:
         matching_lines = [line for line in lines if self.keyword in line]
 
         if matching_lines:
-            
             print(Color.GREEN + f"Lines with the word --> '{self.keyword}':" + Color.RESET)
             for i, line in enumerate(matching_lines, start=1):
                 print(f"Line {i}: {line.strip()}")
         else:
-            
             print(Color.RED + f"No occurrence of the word --> '{self.keyword}' found." + Color.RESET)
 
 
@@ -336,26 +318,18 @@ class InfoIp:
                     print(Color.RED + "Cannot calculate for this address class." + Color.RESET)
                 else:
                     print(Color.GREEN + "The number of IP addresses in the block is:" + Color.RESET, f"{ip_count}")
-
-               
             else:
                 print(Color.RED + "Invalid IP address. Make sure you use the correct format." + Color.RESET)
 
         elif verify_valid_ip:
-
             if is_valid_ip(self.ip):
                 print(Color.GREEN + "Valid IP address." + Color.RESET)
-
         elif verify_class:
-
             ip_class = calculate_ip_class(self.ip)
             print(Color.GREEN + f"IP address class: ",  + Color.RESET + {ip_class})
-
         elif calc_subnet_mask:
-
             subnet_mask = calculate_subnet_mask(self.ip)
             print(Color.GREEN + f"Subnet mask:", + Color.RESET + {subnet_mask})
-
         elif calc_count:
             if is_valid_ip(self.ip):
                 ip_count = calculate_ip_count(self.ip)
