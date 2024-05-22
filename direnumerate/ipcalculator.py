@@ -1,5 +1,4 @@
 
-
 def is_valid_ip(ip):
         try:
             parts = ip.split('.')

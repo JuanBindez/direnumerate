@@ -223,6 +223,7 @@ class FindPattern:
         """
         self.file_log = file_log
 
+    @deprecated
     def find_in_log(self, keyword: str = None):
         """
         Search for the specified keyword in the log file and display matching lines.
@@ -282,7 +283,7 @@ class InfoIp:
     def __init__(self, ip):
         self.ip = ip
 
-
+    @deprecated
     def ip_calculator(self,
                          all: bool = False,
                          verify_valid_ip: bool = False,
@@ -340,7 +341,7 @@ class InfoIp:
             else:
                 print(Color.RED + "Invalid IP address. Make sure to use the correct format.", + Color.RESET)
     
-
+    @deprecated
     def show_info(self):
         """
         Display detailed information about the IP address, including its geographical location, hostname, and more.
@@ -382,7 +383,7 @@ class InfoIp:
         ic.ip_calculator(all=True)
 
 
-@deprecated
+
 class UserScan:
     def __init__(self, user_name):
         self.user_name = user_name

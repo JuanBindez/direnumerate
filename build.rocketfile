@@ -1,7 +1,7 @@
 git add .
-git commit -m ' added deprecated warnings and fixed the command line ip info #5 '
+git commit -m ' added deprecated in some functions'
 git push -u origin main
-git tag v3.3.1
+git tag v3.4.0
 git push --tag
 make clean
 make upload
