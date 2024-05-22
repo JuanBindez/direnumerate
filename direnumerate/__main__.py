@@ -92,6 +92,7 @@ class DirScan:
         if verbose:
             try:
                 with open(self.wordlist_file, "r") as self.wordlist_file:
+                    results_list = []
                     for line in self.wordlist_file:
                         path = line.strip()
                         full_url = self.url + "/" + path
@@ -99,32 +100,28 @@ class DirScan:
                         
                         if response.status_code == 200:
                             results = f"{Color.GREEN}[Found]:{Color.RESET} {full_url}"
-                            print(results)
-                            
+                            results_list.append(f'[Found] {full_url}')
                         elif response.status_code == 204:
                             results = f"{Color.BLUE}[No Content]:{Color.RESET} {full_url}"
-                            print(results)
-                            
+                            results_list.append(f'[No Content] {full_url}')
                         elif response.status_code == 400:
                             results = f"{Color.YELLOW}[Bad Request]:{Color.RESET} {full_url}"
-                            print(results)
-                            
+                            results_list.append(f'[Bad Request] {full_url}')
                         elif response.status_code == 401:
                             results = f"{Color.RED}[Unauthorized]:{Color.RESET} {full_url}"
-                            print(results)
-                            
+                            results_list.append(f'[Unauthorized] {full_url}')
                         elif response.status_code == 403:
                             results = f"{Color.RED}[Forbidden]:{Color.RESET} {full_url}"
-                            print(results)
-                            
+                            results_list.append(f'[Forbidden] {full_url}')
                         elif response.status_code == 404:
                             results =f"{Color.YELLOW}[Not Found]:{Color.RESET} {full_url}"
-                            print(results)
-                            
+                            results_list.append(f'[Not Found] {full_url}')
                         elif response.status_code == 500:
                             results = f"{Color.BLUE}[Internal Server Error]:{Color.RESET} {full_url}"
-                            print(results)
-                            
+                            results_list.append(f'[Internal Server Error] {full_url}')
+
+                        
+                        
 
             except FileNotFoundError:
                 print(Color.RED + "Word list file not found." + Color.RESET)
@@ -139,30 +136,20 @@ class DirScan:
                 print(rec)
                 print(Color.RED + "[Error] " + Color.RESET)
 
-        else:
-            try:
-                with open(self.wordlist_file, "r") as self.wordlist_file:
-                        for line in self.wordlist_file:
-                            path = line.strip()
-                            full_url = self.url + "/" + path
-                            response = requests.get(full_url)
+        
+        with open(self.wordlist_file, "r") as self.wordlist_file:
+                for line in self.wordlist_file:
+                    results_list = []
+                    path = line.strip()
+                    full_url = self.url + "/" + path
+                    response = requests.get(full_url)
                             
-                            if response.status_code == 200:
-                                results = f"{Color.GREEN}[Found]:{Color.RESET} {full_url}"
-                                print(results)
-            
-            except FileNotFoundError:
-                print(Color.RED + "Word list file not found." + Color.RESET)
-                
-            except TypeError:
-                print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
-                
-            except KeyboardInterrupt:
-                print(Color.GREEN + "-------------- Attempt interrupted by user ------------" + Color.RESET)
+                    if response.status_code == 200:
+                        results = f"{Color.GREEN}[Found]:{Color.RESET} {full_url}"
+                        results_list.append('[Found]', full_url)
+                            
+        return results_list
 
-            except requests.exceptions.ConnectionError as rec:
-                print(rec)
-                print(Color.RED + "[Error]" + Color.RESET)
 
 class PortScan:
     """
