@@ -22,7 +22,7 @@ class PortScan:
         self.host = host.replace("https://", "")
         self.open_ports = []
 
-    def scan_ports(self, ports):
+    def scan_ports(self, ports) -> list:
         """
         Scan the specified ports on the target host.
 

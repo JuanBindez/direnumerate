@@ -26,13 +26,10 @@ from direnumerate.banner import *
 from direnumerate.help import help_direnumerate
 import direnumerate.exceptions as exception
 from direnumerate.warning import deprecated
+from direnumerate.port_scan import PortScan
 
 
-class Dire:
-    pass
-
-
-class DirScan:
+class Scan:
     """
     A class for directory scanning.
 
@@ -57,17 +54,15 @@ class DirScan:
             if url_verify == ":":
                 url = url.replace("http://", "https://")
                 self.url = url
-
             elif url_verify == "s":
                 self.url = url
-
             else:
                 self.url = "https://" + url
                 
         except IndexError:
             raise exception.DirenumerateError("[error] expected an argument")
 
-    def dir_enum(self, 
+    def show_dirs(self, 
                  wordlist_file, 
                  verbose_only_found: bool = False,
                  verbose: bool = False
@@ -145,7 +140,6 @@ class DirScan:
                             results_list.append(f'[Found] {full_url}')
                             if verbose:
                                 print(f"{Color.GREEN}[Found]:{Color.RESET} {full_url}")
-                            
                         elif response.status_code == 204:
                             results_list.append(f'[No Content] {full_url}')
                             if verbose:
@@ -179,3 +173,7 @@ class DirScan:
                 print(f"{Color.RED}[Error] {rec}{Color.RESET}")
             
         return results_list
+    
+    def port_scan(self, ip, ports) -> list:
+        scan = PortScan(ip)
+        return scan.scan_ports(ports)

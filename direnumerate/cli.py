@@ -1,5 +1,5 @@
 import argparse
-from direnumerate.__main__ import DirScan, PortScan, FindPattern, InfoIp
+from direnumerate.__main__ import Scan
 from direnumerate.colors import Color
 from direnumerate.banner import *
 from direnumerate.version import __version__
@@ -19,8 +19,8 @@ def dir_scan(args):
                 url = args.target
                 wordlist_file = args.wordlist
 
-                enum = DirScan(url)
-                enum.dir_enum(wordlist_file, verbose=True)
+                enum = Scan(url)
+                enum.show_dirs(wordlist_file, verbose=True)
             except TypeError:
                 print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
             except KeyboardInterrupt:
@@ -32,8 +32,8 @@ def dir_scan(args):
         url = args.target
         wordlist_file = args.wordlist
 
-        enum = DirScan(url)
-        enum.dir_enum(wordlist_file)
+        enum = Scan(url)
+        enum.show_dirs(wordlist_file)
     except TypeError:
         print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
     except KeyboardInterrupt:
@@ -52,27 +52,10 @@ def port_scan(args):
         host = args.target
         ports = args.ports
 
-        scanner = PortScan(host)
-        scanner.scan_ports(ports)
+        scanner = Scan()
+        scanner.port_scan(host, ports)
     except KeyboardInterrupt:
         print(Color.GREEN + "-------------- Port scan interrupted by user ------------" + Color.RESET)
-
-
-def find_pattern(args):
-    show_banner()
-    file_name_log = args.logname
-    key = args.keyword
-
-    fp = FindPattern(file_name_log)
-    fp.find_in_log(keyword=key)
-
-
-def show_info_ip(args):
-    show_banner()
-    ip_address = args.info
-
-    ipinfo = InfoIp(ip_address)
-    ipinfo.show_info()
 
 
 def main():
@@ -87,24 +70,15 @@ def main():
     parser.add_argument("-v", "--verbose", required=False, action="store_true", help="Verbose output")
     parser.add_argument("-t", "--target", required=False, help="Target URL (including scheme, e.g. http://www.example.com)")
     parser.add_argument("-w", "--wordlist", required=False, help="Wordlist file")
-    parser.add_argument("-i", "--info", required=False, help="Target host for info scanning")
     
     # Add arguments for port scanning
     parser.add_argument("-p", "--ports", nargs='+', type=int, help="Ports to scan (e.g., 22 80 443)")
     
-    # Add arguments for log scanning
-    parser.add_argument("-log", "--logname", help="Log Name")
-    parser.add_argument("-key", "--keyword", help="Key Word")
-    
 
     args = parser.parse_args()
-    
-    if args.logname and args.keyword:
-        find_pattern(args)
-    elif args.ports:
+
+    if args.ports:
         port_scan(args)
-    elif args.info:
-        show_info_ip(args)
     else:
         dir_scan(args)
 

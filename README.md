@@ -42,14 +42,6 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
     direnumerate -t 44.228.249.3 -p 22 80 443
 
-### Finds patterns in logs:
-
-    direnumerate -log test.log -key ERROR
-
-### IP Info:
-
-    direnumerate -t 8.8.8.8 -i
-
 
 ## Scripts usage:
 
@@ -57,13 +49,13 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
 ```python
 
-from direnumerate import DirScan
+from direnumerate import Scan
 
 url = "testphp.vulnweb.com"
 wordlist = "wordlist.txt"
 
-enum = DirScan(url)
-enum.dir_enum(wordlist)
+enum = Scan(url)
+print(enum.show_dirs(wordlist))
 ```
 ----------
 
@@ -71,40 +63,10 @@ enum.dir_enum(wordlist)
 
 ```python
 
-from direnumerate import PortScan
+from direnumerate import Scan
 
-ip = "44.228.249.3"
-list_ports = [22, 80, 443]
-
-scan = PortScan(ip)
-scan.scan_ports(list_ports)
-
-```
-----------
-
-### Finds patterns in logs:
-
-```python
-
-from direnumerate import FindPatterns
-
-log = "test.log"
-key = "ERROR"
-
-fp = FindPatterns(log)
-fp.find_in_log(keyword=key)
-```
-
-### IP Info:
-
-```python
-
-from direnumerate import InfoIp
-
-ip = "8.8.8.8"
-
-ipinfo = InfoIp(ip)
-ipinfo.show_info()
+enum = Scan()
+print(enum.port_scan(ip='44.228.249.3', ports=[22, 443, 8080, 8280, 80, 25]))
 
 ```
 ----------
