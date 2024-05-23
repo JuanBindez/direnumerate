@@ -174,6 +174,6 @@ class Scan:
             
         return results_list
     
-    def port_scan(self, ip, ports) -> list:
-        scan = PortScan(ip)
+    def port_scan(self, ports) -> list:
+        scan = PortScan(self.url)
         return scan.scan_ports(ports)
