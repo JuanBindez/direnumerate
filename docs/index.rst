@@ -51,7 +51,6 @@ of direnumerate.
    user/portscan
    user/infoip
    user/findinlog
-   user/userscan
 
 
 The API Documentation
