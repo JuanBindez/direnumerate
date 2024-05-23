@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "direnumerate"
-version = "4.0a3"
+version = "4.0a4"
 authors = [
   { name="Juan Bindez", email="juanbindez780@gmail.com" },
 ]

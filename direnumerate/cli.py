@@ -33,7 +33,7 @@ def dir_scan(args):
         wordlist_file = args.wordlist
 
         enum = Scan(url)
-        enum.show_dirs(wordlist_file)
+        enum.show_dirs(wordlist_file=wordlist_file)
     except TypeError:
         print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
     except KeyboardInterrupt:
@@ -53,7 +53,7 @@ def port_scan(args):
         ports = args.ports
 
         scanner = Scan()
-        scanner.port_scan(host, ports)
+        scanner.port_scan(ip=host, ports=ports)
     except KeyboardInterrupt:
         print(Color.GREEN + "-------------- Port scan interrupted by user ------------" + Color.RESET)
 
@@ -66,15 +66,12 @@ def main():
     """
     parser = argparse.ArgumentParser(description="Direnumerate - Directory Enumeration on Web Servers")
     
-    # Add arguments for directory enumeration
     parser.add_argument("-v", "--verbose", required=False, action="store_true", help="Verbose output")
     parser.add_argument("-t", "--target", required=False, help="Target URL (including scheme, e.g. http://www.example.com)")
     parser.add_argument("-w", "--wordlist", required=False, help="Wordlist file")
     
-    # Add arguments for port scanning
     parser.add_argument("-p", "--ports", nargs='+', type=int, help="Ports to scan (e.g., 22 80 443)")
     
-
     args = parser.parse_args()
 
     if args.ports:
