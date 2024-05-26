@@ -62,7 +62,7 @@ class Scan:
         except IndexError:
             raise exception.DirenumerateError("[error] expected an argument")
 
-    def show_dirs(self, 
+    def dirs(self, 
                  wordlist_file, 
                  verbose_only_found: bool = False,
                  verbose: bool = False
@@ -97,7 +97,6 @@ class Scan:
                         if response.status_code == 200:
                             results_list.append(f'[Found] {full_url}')
                             print(f"{Color.GREEN}[Found]:{Color.RESET} {full_url}")
-                            
                         elif response.status_code == 204:
                             results_list.append(f'[No Content] {full_url}')
                             print(f"{Color.BLUE}[No Content]:{Color.RESET} {full_url}")
@@ -174,6 +173,6 @@ class Scan:
             
         return results_list
     
-    def port_scan(self, ports) -> list:
+    def ports(self, ports) -> list:
         scan = PortScan(self.url)
         return scan.scan_ports(ports)
