@@ -1,12 +1,17 @@
 # Direnumerate
 
+
+
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/direnumerate)
 ![PyPI - License](https://img.shields.io/pypi/l/direnumerate)
 [![Documentation Status](https://readthedocs.org/projects/direnumerate/badge/?version=latest)](https://direnumerate.readthedocs.io/en/latest/?badge=latest)
 ![GitHub Tag](https://img.shields.io/github/v/tag/JuanBindez/direnumerate?include_prereleases&link=https%3A%2F%2Fgithub.com%2FJuanBindez%2Fdirenumerate%2Ftags)
 <a href="https://pypi.org/project/direnumerate/"><img src="https://img.shields.io/pypi/v/direnumerate" /></a>
 
-[PDF documentation](https://direnumerate.readthedocs.io/_/downloads/en/latest/pdf/)
+
+#### Test in Colab
+
+https://colab.research.google.com/github/JuanBindez/direnumerate-colab/blob/main/direnumerate.ipynb
 
 ## Description
 
@@ -27,11 +32,6 @@ Direnumerate is an open source tool written in Python designed to automate direc
 
 -----------------
 
-## install in ubuntu:
-
-    pip install direnumerate --break-system-packages
-----------
-
 ## Command line usage:
 
 ### Directory Scan:
@@ -41,7 +41,6 @@ Direnumerate is an open source tool written in Python designed to automate direc
 ### Post Scan:
 
     direnumerate -t 44.228.249.3 -p 22 80 443
-
 
 ## Scripts usage:
 

@@ -8,31 +8,31 @@ Directory scan:
 
 .. code:: bash
 
-    $ direnumerate Ds -t "testphp.vulnweb.com" -w wordlist.txt
+    $ direnumerate -t "testphp.vulnweb.com" -w wordlist.txt
 
 Directory scan with all outputs verbose, (-v command):
 
 .. code:: bash
 
-    $ direnumerate Ds -v -t "testphp.vulnweb.com" -w wordlist.txt
+    $ direnumerate -v -t "testphp.vulnweb.com" -w wordlist.txt
 
 Port scan:
 
 .. code:: bash
 
-    $ direnumerate Ps -t 44.228.249.3 -p 22 80 443
+    $ direnumerate -t 44.228.249.3 -p 22 80 443
 
 Finds patterns in logs:
 
 .. code:: bash
 
-    $ direnumerate Fp -log test.log -key ERROR
+    $ direnumerate -log test.log -key ERROR
 
 Ip info:
 
 .. code:: bash
 
-    $ direnumerate info -t 8.8.8.8
+    $ direnumerate -i 8.8.8.8
 
 
 To list all command line options, simply type

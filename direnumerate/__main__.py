@@ -149,6 +149,7 @@ class Scan:
                         response = requests.get(full_url)
                         
                         if response.status_code == 200:
+
                             result = f'[Found] {full_url}'
                             results_list.append(result)
                             print(f"{Color.GREEN}[Found]:{Color.RESET} {full_url}")
@@ -165,6 +166,7 @@ class Scan:
                 print(error_message)
                 if log:
                     self.logger.warning("Attempt interrupted by user.")
+
             except requests.exceptions.ConnectionError as rec:
                 error_message = f"{Color.RED}[Error] {rec}{Color.RESET}"
                 print(error_message)
@@ -178,6 +180,7 @@ class Scan:
                         path = line.strip()
                         full_url = f"{self.url}/{path}"
                         response = requests.get(full_url)
+
                         
                         result = ""
                         if response.status_code == 200:
