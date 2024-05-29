@@ -20,7 +20,7 @@ def dir_scan(args):
                 wordlist_file = args.wordlist
 
                 enum = Scan(url)
-                enum.dirs(wordlist_file, verbose=True)
+                enum.dirs(log=True, wordlist_file=wordlist_file, verbose=True)
             except TypeError:
                 print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
             except KeyboardInterrupt:
@@ -33,7 +33,7 @@ def dir_scan(args):
         wordlist_file = args.wordlist
 
         enum = Scan(url)
-        enum.dirs(wordlist_file=wordlist_file)
+        enum.dirs(log=True, wordlist_file=wordlist_file, return_only_found=True)
     except TypeError:
         print(Color.GREEN + "-------------------- Scan Finished --------------------" + Color.RESET)
     except KeyboardInterrupt:
