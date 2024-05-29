@@ -1,7 +1,7 @@
 from direnumerate import Scan
 
-host = 'https://paraty.com.br'
+host = 'https://paraty.com'
 wordlist = 'wordlist.txt'
 
 enum = Scan(host)
-print(enum.dirs(log=True, wordlist_file=wordlist))
+print(enum.ports(log=True, ports=[22, 80, 443, 8080]))

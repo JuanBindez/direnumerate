@@ -53,7 +53,7 @@ def port_scan(args):
         ports = args.ports
 
         scanner = Scan(host)
-        scanner.ports(ports=ports)
+        scanner.ports(log=True, ports=ports)
     except KeyboardInterrupt:
         print(Color.GREEN + "-------------- Port scan interrupted by user ------------" + Color.RESET)
 

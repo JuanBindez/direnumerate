@@ -246,6 +246,5 @@ class Scan:
         scan = PortScan(self.url)
         results = scan.scan_ports(ports)
         if log:
-            for result in results:
-                self.logger.debug(result)
+            self.logger.debug(f"open ports {results} in {self.url}")
         return results
