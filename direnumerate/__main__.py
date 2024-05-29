@@ -18,6 +18,7 @@
 
 
 import requests
+import logging
 from typing import Optional
 
 from direnumerate.createlist import create_wordlist
@@ -31,21 +32,20 @@ from direnumerate.port_scan import PortScan
 
 class Scan:
     """
-    A class for directory scanning.
-
-    Attributes:
-        url (str): The URL to scan.
-        wordlist_file (str): The path to the wordlist file.
+    A class to perform directory and port scanning on a given URL.
     """
-    def __init__(self, url):
+
+    def __init__(self, url: str):
         """
-        Initializes a DirScan instance.
+        Initializes the Scan object with the given URL. The URL is validated and 
+        adjusted to use HTTPS if needed.
 
         Args:
-            url (str): The URL to scan.
-            wordlist_file (str): The path to the wordlist file.
-        """
+            url (str): The target URL to scan.
 
+        Raises:
+            DirenumerateError: If the URL argument is missing or incorrect.
+        """
         self.url = url
 
         try:
@@ -62,70 +62,114 @@ class Scan:
         except IndexError:
             raise exception.DirenumerateError("[error] expected an argument")
 
+        # Set up logging
+        self.logger = logging.getLogger('direnumerate')
+        self.logger.setLevel(logging.DEBUG)
+        fh = logging.FileHandler('direnumerate.log')
+        fh.setLevel(logging.DEBUG)
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        fh.setFormatter(formatter)
+        self.logger.addHandler(fh)
+
     def dirs(self, 
-                 wordlist_file, 
-                 verbose_only_found: bool = False,
-                 verbose: bool = False
-                 ) -> list:
+             wordlist_file: str, 
+             return_only_found: bool = False,
+             verbose: bool = False,
+             log: bool = False
+             ) -> list:
         """
-        Perform directory enumeration.
+        Scans the directories listed in the wordlist file for the given URL.
 
-        This method reads paths from a wordlist file, appends them to the URL, and sends HTTP requests to
-        check for the existence of the resources. It prints the results based on the response status code.
+        Args:
+            wordlist_file (str): Path to the file containing directory names to scan.
+            return_only_found (bool, optional): If True, only returns directories that 
+                are found (status code 200). Defaults to False.
+            verbose (bool, optional): If True, prints detailed scan results to the console. 
+                Defaults to False.
+            log (bool, optional): If True, writes output to direnumerate.log file.
+                Defaults to False.
 
-        - 200: Found
-        - 204: No Content
-        - 400: Bad Request
-        - 401: Unauthorized
-        - 403: Forbidden
-        - 404: Not Found
-        - 500: Internal Server Error
-
-        If the wordlist file is not found, it attempts to create one.
+        Returns:
+            list: A list of scan results with status codes.
         """
         self.wordlist_file = wordlist_file
 
         results_list = []
 
-        if verbose_only_found == False and verbose == False:
-            with open(wordlist_file, "r") as file:
+        if return_only_found == False and verbose == False:
+            try:
+                with open(wordlist_file, "r") as file:
+                    for line in file:
+                        path = line.strip()
+                        full_url = f"{self.url}/{path}"
+                        response = requests.get(full_url)
+                        
+                        result = ""
+                        if response.status_code == 200:
+                            result = f'[Found] {full_url}'
+                        elif response.status_code == 204:
+                            result = f'[No Content] {full_url}'
+                        elif response.status_code == 400:
+                            result = f'[Bad Request] {full_url}'
+                        elif response.status_code == 401:
+                            result = f'[Unauthorized] {full_url}'
+                        elif response.status_code == 403:
+                            result = f'[Forbidden] {full_url}'
+                        elif response.status_code == 404:
+                            result = f'[Not Found] {full_url}'
+                        elif response.status_code == 500:
+                            result = f'[Internal Server Error] {full_url}'
+                        
+                        results_list.append(result)
+                        if log:
+                            self.logger.debug(result)
+
+            except FileNotFoundError:
+                error_message = f"{Color.RED}Word list file not found.{Color.RESET}"
+                print(error_message)
+                if log:
+                    self.logger.error("Word list file not found.")
+            except KeyboardInterrupt:
+                error_message = f"{Color.GREEN}Attempt interrupted by user.{Color.RESET}"
+                print(error_message)
+                if log:
+                    self.logger.warning("Attempt interrupted by user.")
+            except requests.exceptions.ConnectionError as rec:
+                error_message = f"{Color.RED}[Error] {rec}{Color.RESET}"
+                print(error_message)
+                if log:
+                    self.logger.error(f"[Error] {rec}")
+
+        if return_only_found: 
+            try:
+                with open(wordlist_file, "r") as file:
                     for line in file:
                         path = line.strip()
                         full_url = f"{self.url}/{path}"
                         response = requests.get(full_url)
                         
                         if response.status_code == 200:
-                            results_list.append(f'[Found] {full_url}')
+                            result = f'[Found] {full_url}'
+                            results_list.append(result)
                             print(f"{Color.GREEN}[Found]:{Color.RESET} {full_url}")
-                        elif response.status_code == 204:
-                            results_list.append(f'[No Content] {full_url}')
-                            print(f"{Color.BLUE}[No Content]:{Color.RESET} {full_url}")
-                        elif response.status_code == 400:
-                            results_list.append(f'[Bad Request] {full_url}')
-                            print(f"{Color.YELLOW}[Bad Request]:{Color.RESET} {full_url}")
-                        elif response.status_code == 401:
-                            results_list.append(f'[Unauthorized] {full_url}')
-                            print(f"{Color.RED}[Unauthorized]:{Color.RESET} {full_url}")
-                        elif response.status_code == 403:
-                            results_list.append(f'[Forbidden] {full_url}')
-                            print(f"{Color.RED}[Forbidden]:{Color.RESET} {full_url}")
-                        elif response.status_code == 404:
-                            results_list.append(f'[Not Found] {full_url}')
-                            print(f"{Color.YELLOW}[Not Found]:{Color.RESET} {full_url}")
-                        elif response.status_code == 500:
-                            results_list.append(f'[Internal Server Error] {full_url}')
-                            print(f"{Color.BLUE}[Internal Server Error]:{Color.RESET} {full_url}")
+                            if log:
+                                self.logger.debug(result)
 
-        if verbose_only_found: 
-            with open(wordlist_file, "r") as file:
-                for line in file:
-                    path = line.strip()
-                    full_url = f"{self.url}/{path}"
-                    response = requests.get(full_url)
-                        
-                    if response.status_code == 200:
-                        results_list.append(f'[Found] {full_url}')
-                        print(f"{Color.GREEN}[Found]:{Color.RESET} {full_url}")
+            except FileNotFoundError:
+                error_message = f"{Color.RED}Word list file not found.{Color.RESET}"
+                print(error_message)
+                if log:
+                    self.logger.error("Word list file not found.")
+            except KeyboardInterrupt:
+                error_message = f"{Color.GREEN}Attempt interrupted by user.{Color.RESET}"
+                print(error_message)
+                if log:
+                    self.logger.warning("Attempt interrupted by user.")
+            except requests.exceptions.ConnectionError as rec:
+                error_message = f"{Color.RED}[Error] {rec}{Color.RESET}"
+                print(error_message)
+                if log:
+                    self.logger.error(f"[Error] {rec}")
 
         if verbose:
             try:
@@ -135,44 +179,73 @@ class Scan:
                         full_url = f"{self.url}/{path}"
                         response = requests.get(full_url)
                         
+                        result = ""
                         if response.status_code == 200:
-                            results_list.append(f'[Found] {full_url}')
+                            result = f'[Found] {full_url}'
                             if verbose:
                                 print(f"{Color.GREEN}[Found]:{Color.RESET} {full_url}")
                         elif response.status_code == 204:
-                            results_list.append(f'[No Content] {full_url}')
+                            result = f'[No Content] {full_url}'
                             if verbose:
                                 print(f"{Color.BLUE}[No Content]:{Color.RESET} {full_url}")
                         elif response.status_code == 400:
-                            results_list.append(f'[Bad Request] {full_url}')
+                            result = f'[Bad Request] {full_url}'
                             if verbose:
                                 print(f"{Color.YELLOW}[Bad Request]:{Color.RESET} {full_url}")
                         elif response.status_code == 401:
-                            results_list.append(f'[Unauthorized] {full_url}')
+                            result = f'[Unauthorized] {full_url}'
                             if verbose:
                                 print(f"{Color.RED}[Unauthorized]:{Color.RESET} {full_url}")
                         elif response.status_code == 403:
-                            results_list.append(f'[Forbidden] {full_url}')
+                            result = f'[Forbidden] {full_url}'
                             if verbose:
                                 print(f"{Color.RED}[Forbidden]:{Color.RESET} {full_url}")
                         elif response.status_code == 404:
-                            results_list.append(f'[Not Found] {full_url}')
+                            result = f'[Not Found] {full_url}'
                             if verbose:
                                 print(f"{Color.YELLOW}[Not Found]:{Color.RESET} {full_url}")
                         elif response.status_code == 500:
-                            results_list.append(f'[Internal Server Error] {full_url}')
+                            result = f'[Internal Server Error] {full_url}'
                             if verbose:
                                 print(f"{Color.BLUE}[Internal Server Error]:{Color.RESET} {full_url}")
+                        
+                        results_list.append(result)
+                        if log:
+                            self.logger.debug(result)
 
             except FileNotFoundError:
-                print(f"{Color.RED}Word list file not found.{Color.RESET}")
+                error_message = f"{Color.RED}Word list file not found.{Color.RESET}"
+                print(error_message)
+                if log:
+                    self.logger.error("Word list file not found.")
             except KeyboardInterrupt:
-                print(f"{Color.GREEN}Attempt interrupted by user.{Color.RESET}")
+                error_message = f"{Color.GREEN}Attempt interrupted by user.{Color.RESET}"
+                print(error_message)
+                if log:
+                    self.logger.warning("Attempt interrupted by user.")
             except requests.exceptions.ConnectionError as rec:
-                print(f"{Color.RED}[Error] {rec}{Color.RESET}")
+                error_message = f"{Color.RED}[Error] {rec}{Color.RESET}"
+                print(error_message)
+                if log:
+                    self.logger.error(f"[Error] {rec}")
             
         return results_list
     
-    def ports(self, ports) -> list:
+    def ports(self, ports: list, log: bool = False) -> list:
+        """
+        Scans the specified ports for the given URL.
+
+        Args:
+            ports (list): A list of ports to scan.
+            log (bool, optional): If True, writes output to direnumerate.log file.
+                Defaults to False.
+
+        Returns:
+            list: A list of scan results for the specified ports.
+        """
         scan = PortScan(self.url)
-        return scan.scan_ports(ports)
+        results = scan.scan_ports(ports)
+        if log:
+            for result in results:
+                self.logger.debug(result)
+        return results

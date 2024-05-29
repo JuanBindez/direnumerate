@@ -1,7 +1,7 @@
 git add .
-git commit -m 'update a6'
+git commit -m 'update rc1'
 git push -u origin dev
-git tag v4.0a6
+git tag v4.0-rc1
 git push --tag
 make clean
 make upload
