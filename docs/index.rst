@@ -49,6 +49,8 @@ of direnumerate.
    user/direnumerate
    user/cli
    user/portscan
+   user/dirs
+   user/log
 
 
 The API Documentation
