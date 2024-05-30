@@ -9,7 +9,7 @@ API
 DirScan Object
 --------------
 
-.. autoclass:: DirScan
+.. autoclass:: Scan
    :members:
    :inherited-members:
 
@@ -19,18 +19,3 @@ PortScan Object
 .. autoclass:: PortScan
    :members:
    :inherited-members:
-
-FindPattern Object
-------------------
-
-.. autoclass:: FindPattern
-   :members:
-   :inherited-members:
-
-InfoIp Object
--------------
-
-.. autoclass:: InfoIp
-   :members:
-   :inherited-members:
-

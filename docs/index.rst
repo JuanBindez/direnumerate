@@ -24,8 +24,8 @@ Release v\ |version|. (:ref:`Installation<install>`)
     url = "testphp.vulnweb.com"
     wordlist = "wordlist.txt"
 
-    enum = DirScan(url)
-    enum.dir_enum(wordlist)
+    enum = Scan(url)
+    enum.dirs(wordlist)
 
 Features
 --------
@@ -49,8 +49,6 @@ of direnumerate.
    user/direnumerate
    user/cli
    user/portscan
-   user/infoip
-   user/findinlog
 
 
 The API Documentation

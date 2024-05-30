@@ -10,17 +10,17 @@ Directory Scan in websites:
         url = "testphp.vulnweb.com"
         wordlist = "wordlist.txt"
 
-        enum = DirScan(url)
-        enum.dir_enum(wordlist)
+        enum = Scan(url)
+        enum.dirs(log=True, wordlist_file=wordlist)
 
 
 **Directory scan with all outputs verbose**::
 
-        from direnumerate import DirScan
+        from direnumerate import Scan
 
         url = "testphp.vulnweb.com"
         wordlist = "wordlist.txt"
 
-        enum = DirScan(url)
-        enum.dir_enum(wordlist, verbose=True)
+        enum = Scan(url)
+        enum.dirs(wordlist, verbose=True)
 

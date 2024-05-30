@@ -22,18 +22,6 @@ Port scan:
 
     $ direnumerate -t 44.228.249.3 -p 22 80 443
 
-Finds patterns in logs:
-
-.. code:: bash
-
-    $ direnumerate -log test.log -key ERROR
-
-Ip info:
-
-.. code:: bash
-
-    $ direnumerate -i 8.8.8.8
-
 
 To list all command line options, simply type
 

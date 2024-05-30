@@ -54,7 +54,7 @@ url = "testphp.vulnweb.com"
 wordlist = "wordlist.txt"
 
 enum = Scan(url)
-print(enum.dirs(wordlist))
+print(enum.dirs(log=True, wordlist_file=wordlist))
 ```
 ----------
 
