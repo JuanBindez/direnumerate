@@ -6,7 +6,7 @@ API
 .. module:: direnumerate
 
 
-DirScan Object
+Scan Object
 --------------
 
 .. autoclass:: Scan
