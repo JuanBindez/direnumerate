@@ -62,7 +62,6 @@ class Scan:
         except IndexError:
             raise exception.DirenumerateError("[error] expected an argument")
 
-        # Set up logging
         self.logger = logging.getLogger('direnumerate')
         self.logger.setLevel(logging.DEBUG)
         fh = logging.FileHandler('direnumerate.log')
