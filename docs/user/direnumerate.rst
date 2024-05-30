@@ -5,7 +5,7 @@ Directory Scan in websites:
 
 **When running the script, direnumerate automatically creates a wordlist that can be customized later**::
 
-        from direnumerate import DirScan
+        from direnumerate import Scan
 
         url = "testphp.vulnweb.com"
         wordlist = "wordlist.txt"
