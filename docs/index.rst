@@ -19,7 +19,7 @@ Release v\ |version|. (:ref:`Installation<install>`)
 
 **Behold, a perfect balance of simplicity versus flexibility**::
 
-    from direnumerate import DirScan
+    from direnumerate import Scan
 
     url = "testphp.vulnweb.com"
     wordlist = "wordlist.txt"
