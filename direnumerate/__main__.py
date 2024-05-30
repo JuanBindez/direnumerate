@@ -235,7 +235,7 @@ class Scan:
         Args:
             ports (list): A list of ports to scan.
             log (bool, optional): If True, writes output to direnumerate.log file.
-                Defaults to False.
+            Defaults to False.
 
         Returns:
             list: A list of scan results for the specified ports.
