@@ -1,9 +1,9 @@
 .. _log:
 
-log:
+log
 ====
 
-**save the log in file direnumerate.log passing the parameter log=True:**::
+**save the log in file direnumerate.log passing the parameter log=True:**:
 
         from direnumerate import Scan
 
