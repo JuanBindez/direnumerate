@@ -1,6 +1,6 @@
 .. _dirs:
 
-Dirs Scan:
+Dirs Scan
 ==========
 
 **To scan directories on websites:**::
