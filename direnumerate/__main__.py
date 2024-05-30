@@ -41,10 +41,10 @@ class Scan:
         adjusted to use HTTPS if needed.
 
         Args:
-            url (str): The target URL to scan.
+             url (str): The target URL to scan.
 
         Raises:
-            DirenumerateError: If the URL argument is missing or incorrect.
+               DirenumerateError: If the URL argument is missing or incorrect.
         """
         self.url = url
 
@@ -81,16 +81,16 @@ class Scan:
         Scans the directories listed in the wordlist file for the given URL.
 
         Args:
-            wordlist_file (str): Path to the file containing directory names to scan.
-            return_only_found (bool, optional): If True, only returns directories that 
+             wordlist_file (str): Path to the file containing directory names to scan.
+             return_only_found (bool, optional): If True, only returns directories that 
                 are found (status code 200). Defaults to False.
-            verbose (bool, optional): If True, prints detailed scan results to the console. 
+             verbose (bool, optional): If True, prints detailed scan results to the console. 
                 Defaults to False.
-            log (bool, optional): If True, writes output to direnumerate.log file.
+             log (bool, optional): If True, writes output to direnumerate.log file.
                 Defaults to False.
 
         Returns:
-            list: A list of scan results with status codes.
+                list: A list of scan results with status codes.
         """
         self.wordlist_file = wordlist_file
 
@@ -239,12 +239,12 @@ class Scan:
         Scans the specified ports for the given URL.
 
         Args:
-            ports (list): A list of ports to scan.
-            log (bool, optional): If True, writes output to direnumerate.log file.
+             ports (list): A list of ports to scan.
+             log (bool, optional): If True, writes output to direnumerate.log file.
                 Defaults to False.
 
         Returns:
-            list: A list of scan results for the specified ports.
+                list: A list of scan results for the specified ports.
         """
         scan = PortScan(self.url)
         results = scan.scan_ports(ports)
