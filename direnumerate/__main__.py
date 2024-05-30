@@ -234,12 +234,12 @@ class Scan:
         Scans the specified ports for the given URL.
 
         Args:
-             ports (list): A list of ports to scan.
-             log (bool, optional): If True, writes output to direnumerate.log file.
-                    Defaults to False.
+            ports (list): A list of ports to scan.
+            log (bool, optional): If True, writes output to direnumerate.log file.
+                Defaults to False.
 
         Returns:
-                list: A list of scan results for the specified ports.
+            list: A list of scan results for the specified ports.
         """
         scan = PortScan(self.url)
         results = scan.scan_ports(ports)
