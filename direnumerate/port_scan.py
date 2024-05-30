@@ -7,9 +7,9 @@ class PortScan:
     A class for port scanning.
 
     Attributes:
-              host (str): The host to scan for open ports.
-              ports (list): A list of ports to scan.
-              open_ports (list): A list to store open ports.
+        host (str): The host to scan for open ports.
+        ports (list): A list of ports to scan.
+        open_ports (list): A list to store open ports.
     """
     def __init__(self, host):
         """
@@ -33,7 +33,7 @@ class PortScan:
         The results are printed to the console, indicating whether each port is open or closed.
 
         Raises:
-               socket.gaierror: If an invalid host is provided.
+            socket.gaierror: If an invalid host is provided.
         """
         self.ports = ports
         
