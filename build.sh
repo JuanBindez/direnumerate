@@ -1,3 +1,5 @@
+#!/bin/bash
+
 git add .
 git commit -m 'direnumerate 4.0.0'
 git push -u origin main
