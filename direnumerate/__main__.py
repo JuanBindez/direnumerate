@@ -18,7 +18,7 @@
 
 
 import requests
-from requests import InsecureRequestWarning
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import logging
 from typing import Optional
 
