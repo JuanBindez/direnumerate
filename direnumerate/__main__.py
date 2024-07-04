@@ -102,7 +102,7 @@ class Scan:
                     for line in file:
                         path = line.strip()
                         full_url = f"{self.url}/{path}"
-                        response = requests.get(full_url)
+                        response = requests.get(full_url, verify=False)
                         
                         result = ""
                         if response.status_code == 200:
@@ -146,7 +146,7 @@ class Scan:
                     for line in file:
                         path = line.strip()
                         full_url = f"{self.url}/{path}"
-                        response = requests.get(full_url)
+                        response = requests.get(full_url, verify=False)
                         
                         if response.status_code == 200:
                             result = f'[Found] {full_url}'
@@ -177,7 +177,7 @@ class Scan:
                     for line in file:
                         path = line.strip()
                         full_url = f"{self.url}/{path}"
-                        response = requests.get(full_url)
+                        response = requests.get(full_url, verify=False)
                         
                         result = ""
                         if response.status_code == 200:
