@@ -18,6 +18,7 @@
 
 
 import requests
+from requests import InsecureRequestWarning
 import logging
 from typing import Optional
 
@@ -29,6 +30,8 @@ import direnumerate.exceptions as exception
 from direnumerate.warning import deprecated
 from direnumerate.port_scan import PortScan
 
+
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 class Scan:
     """
