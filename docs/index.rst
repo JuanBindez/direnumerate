@@ -19,13 +19,13 @@ Release v\ |version|. (:ref:`Installation<install>`)
 
 **Behold, a perfect balance of simplicity versus flexibility**::
 
-    from direnumerate import DirScan
+    from direnumerate import Scan
 
     url = "testphp.vulnweb.com"
     wordlist = "wordlist.txt"
 
-    enum = DirScan(url)
-    enum.dir_enum(wordlist)
+    enum = Scan(url)
+    enum.dirs(wordlist)
 
 Features
 --------
@@ -49,8 +49,8 @@ of direnumerate.
    user/direnumerate
    user/cli
    user/portscan
-   user/infoip
-   user/findinlog
+   user/dirs
+   user/log
 
 
 The API Documentation

@@ -62,7 +62,6 @@ class Scan:
         except IndexError:
             raise exception.DirenumerateError("[error] expected an argument")
 
-        # Set up logging
         self.logger = logging.getLogger('direnumerate')
         self.logger.setLevel(logging.DEBUG)
         fh = logging.FileHandler('direnumerate.log')
@@ -78,19 +77,14 @@ class Scan:
              log: bool = False
              ) -> list:
         """
-        Scans the directories listed in the wordlist file for the given URL.
+        Initializes the Scan object with the given URL. The URL is validated and 
+        adjusted to use HTTPS if needed.
 
         Args:
-            wordlist_file (str): Path to the file containing directory names to scan.
-            return_only_found (bool, optional): If True, only returns directories that 
-                are found (status code 200). Defaults to False.
-            verbose (bool, optional): If True, prints detailed scan results to the console. 
-                Defaults to False.
-            log (bool, optional): If True, writes output to direnumerate.log file.
-                Defaults to False.
+            url (str): The target URL to scan.
 
-        Returns:
-            list: A list of scan results with status codes.
+        Raises:
+            DirenumerateError: If the URL argument is missing or incorrect.
         """
         self.wordlist_file = wordlist_file
 
@@ -149,6 +143,7 @@ class Scan:
                         response = requests.get(full_url, verify=False)
                         
                         if response.status_code == 200:
+
                             result = f'[Found] {full_url}'
                             results_list.append(result)
                             print(f"{Color.GREEN}[Found]:{Color.RESET} {full_url}")
@@ -165,6 +160,7 @@ class Scan:
                 print(error_message)
                 if log:
                     self.logger.warning("Attempt interrupted by user.")
+
             except requests.exceptions.ConnectionError as rec:
                 error_message = f"{Color.RED}[Error] {rec}{Color.RESET}"
                 print(error_message)
@@ -177,6 +173,7 @@ class Scan:
                     for line in file:
                         path = line.strip()
                         full_url = f"{self.url}/{path}"
+
                         response = requests.get(full_url, verify=False)
                         
                         result = ""
@@ -238,7 +235,7 @@ class Scan:
         Args:
             ports (list): A list of ports to scan.
             log (bool, optional): If True, writes output to direnumerate.log file.
-                Defaults to False.
+            Defaults to False.
 
         Returns:
             list: A list of scan results for the specified ports.

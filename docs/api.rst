@@ -6,37 +6,9 @@ API
 .. module:: direnumerate
 
 
-DirScan Object
+Scan Object
 --------------
 
-.. autoclass:: DirScan
-   :members:
-   :inherited-members:
-
-PortScan Object
----------------
-
-.. autoclass:: PortScan
-   :members:
-   :inherited-members:
-
-FindPattern Object
-------------------
-
-.. autoclass:: FindPattern
-   :members:
-   :inherited-members:
-
-InfoIp Object
--------------
-
-.. autoclass:: InfoIp
-   :members:
-   :inherited-members:
-
-UserScan Object
----------------
-
-.. autoclass:: UserScan
+.. autoclass:: Scan
    :members:
    :inherited-members:

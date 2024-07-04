@@ -1,7 +1,9 @@
+#!/bin/bash
+
 git add .
-git commit -m 'update rc4'
+git commit -m 'direnumerate 4.1-rc1'
 git push -u origin dev
-git tag v4.0-rc4
+git tag v4.1-rc1
 git push --tag
 make clean
 make upload
