@@ -1,17 +1,20 @@
 #!/bin/bash
 
+NAME="Direnumerate"
+
 VERSION=4
-PATCHLEVEL=1
+PATCHLEVEL=.1
 SUBLEVEL=
-EXTRAVERSION="-rc4"
+EXTRAVERSION="-rc5"
+
 
 BRANCH="dev"
 MESSAGE="update test"
 
-FULL_VERSION="$VERSION.$PATCHLEVEL.$SUBLEVEL$EXTRAVERSION"
+FULL_VERSION="$VERSION$PATCHLEVEL$SUBLEVEL$EXTRAVERSION"
 
 git add .
-git commit -m "Direnumerate $FULL_VERSION $MESSAGE"
+git commit -m "$NAME $FULL_VERSION $MESSAGE"
 git push -u origin $BRANCH
 git tag v$FULL_VERSION
 git push --tags
