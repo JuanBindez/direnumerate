@@ -1,5 +1,5 @@
 
-__version__ = "4.1-rc5"
+__version__ = "4.1.0"
 
 
 if __name__ == "__main__":
