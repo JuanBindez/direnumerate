@@ -28,7 +28,8 @@ templates_path = ["_templates"]
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md'] # noqa: E800
-source_suffix = ".rst"
+source_suffix = {".rst": "restructuredtext"}
+
 
 # The master toctree document.
 master_doc = "index"
@@ -77,7 +78,7 @@ intersphinx_mapping = {
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+#html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
